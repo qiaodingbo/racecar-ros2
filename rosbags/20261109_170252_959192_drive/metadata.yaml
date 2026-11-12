@@ -1,0 +1,48 @@
+rosbag2_bagfile_information:
+  version: 5
+  storage_identifier: sqlite3
+  starting_time: &id001
+    nanoseconds_since_epoch: 1794214973012677452
+  duration: &id002
+    nanoseconds: 8760592038
+  message_count: 525
+  topics_with_message_count:
+  - topic_metadata:
+      name: /replay/events
+      type: std_msgs/msg/String
+      serialization_format: cdr
+      offered_qos_profiles: ''
+    message_count: 173
+  - topic_metadata:
+      name: /replay/control_pwm
+      type: geometry_msgs/msg/Twist
+      serialization_format: cdr
+      offered_qos_profiles: ''
+    message_count: 172
+  - topic_metadata:
+      name: /replay/plan
+      type: std_msgs/msg/String
+      serialization_format: cdr
+      offered_qos_profiles: ''
+    message_count: 60
+  - topic_metadata:
+      name: /scan
+      type: sensor_msgs/msg/LaserScan
+      serialization_format: cdr
+      offered_qos_profiles: ''
+    message_count: 60
+  - topic_metadata:
+      name: /replay/scan_info
+      type: std_msgs/msg/String
+      serialization_format: cdr
+      offered_qos_profiles: ''
+    message_count: 60
+  compression_format: ''
+  compression_mode: ''
+  relative_file_paths:
+  - 20261109_170252_959192_drive_0.db3
+  files:
+  - path: 20261109_170252_959192_drive_0.db3
+    starting_time: *id001
+    duration: *id002
+    message_count: 525

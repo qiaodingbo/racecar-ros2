@@ -1,0 +1,54 @@
+rosbag2_bagfile_information:
+  version: 5
+  storage_identifier: sqlite3
+  starting_time: &id001
+    nanoseconds_since_epoch: 1794481056906468738
+  duration: &id002
+    nanoseconds: 1999734217
+  message_count: 65
+  topics_with_message_count:
+  - topic_metadata:
+      name: /replay/events
+      type: std_msgs/msg/String
+      serialization_format: cdr
+      offered_qos_profiles: ''
+    message_count: 2
+  - topic_metadata:
+      name: /scan
+      type: sensor_msgs/msg/LaserScan
+      serialization_format: cdr
+      offered_qos_profiles: ''
+    message_count: 21
+  - topic_metadata:
+      name: /replay/scan_info
+      type: std_msgs/msg/String
+      serialization_format: cdr
+      offered_qos_profiles: ''
+    message_count: 21
+  - topic_metadata:
+      name: /replay/plan
+      type: std_msgs/msg/String
+      serialization_format: cdr
+      offered_qos_profiles: ''
+    message_count: 19
+  - topic_metadata:
+      name: /tf
+      type: tf2_msgs/msg/TFMessage
+      serialization_format: cdr
+      offered_qos_profiles: ''
+    message_count: 1
+  - topic_metadata:
+      name: /replay/odom
+      type: nav_msgs/msg/Odometry
+      serialization_format: cdr
+      offered_qos_profiles: ''
+    message_count: 1
+  compression_format: ''
+  compression_mode: ''
+  relative_file_paths:
+  - 20261112_185736_observe_o1gf5z20_0.db3
+  files:
+  - path: 20261112_185736_observe_o1gf5z20_0.db3
+    starting_time: *id001
+    duration: *id002
+    message_count: 65

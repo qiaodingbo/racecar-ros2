@@ -1,0 +1,18 @@
+{
+  "target_speed_mps": 1.2,
+  "distance_mode": "half_width",
+  "lookahead_base_m": 0.7,
+  "lookahead_speed_seconds": 0.25,
+  "transition_extension_m": 0.3,
+  "preview_heading_weight": 0.35,
+  "speed_kp": 50.0,
+  "speed_ki": 12.0,
+  "speed_feedforward_pwm": 1535.0,
+  "launch_pwm": 1548.0,
+  "maximum_pwm": 1600.0,
+  "angle_kp": 0.8,
+  "angle_kd": 0.26,
+  "angle_derivative_filter_seconds": 0.2,
+  "max_steer_deg": 35.0,
+  "full_steer_deg": 65.0
+}

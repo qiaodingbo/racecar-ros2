@@ -1,0 +1,1069 @@
+"""Nearest-dense bilateral row pairing for the S-bend corridor.
+
+The route is built from the nearest lidar points only:
+
+1. candidate rows are prefixes of the nearest N cones on one side (nearest in
+   x, nearest by range), plus one nearest-link chain per side so a row that
+   curves away is still followed;
+2. every left/right pair is scored on nearness, point density, bilateral
+   similarity (width consistency, heading agreement, curvature agreement,
+   width close to the 1.5 m track), observed overlap length and how smoothly
+   the pair continues into the far cones;
+3. only the winning pair gets a centreline: the mean of the two fitted rows,
+   extended along its own end tangent/curvature by at most a short tail;
+4. the aim point is clamped inside the track so the car stays in the middle
+   region between both rows.
+
+Per-frame work is bounded: rows are fitted once, both rows of a pair are
+sampled once on a shared x grid, and the centreline is built only for the
+winner. The same scan always yields the same route.
+"""
+from dataclasses import dataclass, field
+import math
+
+import numpy as np
+
+from dense_reference import DenseRoute, fit_curve
+from geometry import relative_to_path
+
+
+@dataclass
+class Row:
+    side: int
+    points: np.ndarray
+    curve: np.ndarray
+    tangent: np.ndarray
+    curvature: np.ndarray
+    density: float
+    near: float
+    tag: str
+    stale: bool = False
+    # Filled once per frame by _prepare().
+    y: np.ndarray = field(default=None, repr=False)
+    x_lo: float = field(default=0.0, repr=False)
+    x_hi: float = field(default=0.0, repr=False)
+    heading: np.ndarray = field(default=None, repr=False)
+    kappa: np.ndarray = field(default=None, repr=False)
+    far: np.ndarray = field(default=None, repr=False)
+
+
+@dataclass
+class Choice:
+    left: Row
+    right: Row
+    score: float
+    width: float
+    length: float
+    parts: dict
+
+
+def _trim_monotonic(curve, tangent, curvature):
+    """y = f(x) interpolation needs a monotonic x; cut the tail that folds back."""
+    if len(curve) < 4:
+        return curve[:0], tangent[:0], curvature[:0]
+    reversal = np.flatnonzero(np.diff(curve[:, 0]) <= 1e-6)
+    if not len(reversal):
+        return curve, tangent, curvature
+    cut = int(reversal[0]) + 1
+    if cut < 4:
+        return curve[:0], tangent[:0], curvature[:0]
+    return curve[:cut], tangent[:cut], curvature[:cut]
+
+
+def _row_from(points, side, tag, max_curvature, two_point_max_gap=1.2):
+    row = points[np.argsort(points[:, 0])]
+    if len(row) < 2:
+        return None
+    # Two points are always collinear, so a "row" made of the outer cone of one
+    # section and the inner cone of the next fits perfectly and shifts the
+    # centreline sideways (seen at the entry: (0.63,-1.39)-(1.67,-0.50)).
+    # Cone spacing on this track is 0.5-1.0 m; reject wider two-point rows.
+    if len(row) == 2 and float(np.hypot(*(row[1] - row[0]))) > two_point_max_gap:
+        return None
+    # A side wall never wraps around itself. A cone island (the round cluster
+    # in the middle of this track) fits a quadratic beautifully, so reject any
+    # "row" whose cumulative turn exceeds ~70 deg or whose path is much longer
+    # than its own chord.
+    if len(row) >= 3:
+        seg = np.diff(row, axis=0)
+        step = np.hypot(seg[:, 0], seg[:, 1])
+        chord = float(np.hypot(*(row[-1] - row[0])))
+        path_len = float(np.sum(step))
+        if chord < 1e-6 or path_len / chord > 1.45:
+            return None
+        ang = np.arctan2(seg[:, 1], seg[:, 0])
+        turn = float(np.sum(np.abs(np.diff(ang))))
+        if turn > math.radians(70.0):
+            return None
+    gap = np.linalg.norm(np.diff(row, axis=0), axis=1)
+    # Cones on this track sit ~0.5-1.2 m apart; the old 1.1 m/45 deg limits
+    # discarded every row that reached far enough to fit.
+    if np.any(gap > 2.0) or np.any(gap < 0.04):
+        return None
+    step = np.diff(row, axis=0)
+    heading = np.arctan2(step[:, 1], step[:, 0])
+    turn = np.abs(np.arctan2(np.sin(np.diff(heading)), np.cos(np.diff(heading))))
+    if len(turn) and float(np.max(turn)) > math.radians(75.0):
+        return None
+    fitted = fit_curve(row)
+    if fitted is None:
+        return None
+    curve, tangent, curvature = fitted
+    curve, tangent, curvature = _trim_monotonic(curve, tangent, curvature)
+    if len(curve) < 4 or float(np.max(np.abs(curvature))) > max_curvature:
+        return None
+    arc = float(np.sum(gap))
+    # Two cones give a straight row; on this sparse track that is a legitimate
+    # nearest-prefix candidate, and the pair score decides if it is usable.
+    if arc < 0.20:
+        return None
+    return Row(side, row, curve, tangent, curvature, (len(row) - 1) / arc,
+               float(np.median(np.hypot(row[:, 0], row[:, 1]))), tag)
+
+
+def _chain(points, seed, max_points, max_step=2.0):
+    """Walk forward along one row from a seed, nearest-link with a turn budget."""
+    indices = [int(seed)]
+    heading = None
+    for _ in range(max_points - 1):
+        delta = points - points[indices[-1]]
+        distance = np.hypot(delta[:, 0], delta[:, 1])
+        angle = np.arctan2(delta[:, 1], delta[:, 0])
+        forward = (delta[:, 0] > 0.12) & (distance <= max_step)
+        if heading is not None:
+            turn = np.abs(np.arctan2(np.sin(angle - heading), np.cos(angle - heading)))
+            forward &= turn <= math.radians(65.0)
+        candidates = np.flatnonzero(forward)
+        candidates = candidates[candidates != indices[-1]]
+        if not len(candidates):
+            break
+        reference = 0.0 if heading is None else heading
+        cost = distance[candidates] * (1.0 + 0.25 * np.abs(angle[candidates] - reference))
+        best = int(candidates[int(np.argmin(cost))])
+        indices.append(best)
+        heading = float(angle[best])
+    return points[indices]
+
+
+def _line_rows(points, side, near_range, max_lateral, perp=0.25, max_points=8):
+    """Group one side's points into straight-line bands.
+
+    Prefix-by-x mixes rows: at the start line two right-hand rows (inner at
+    y~-0.8, outer at y~-1.4) share the same x range, so a prefix jumped
+    between them and every pair then measured 2.2-2.9 m wide.  Fitting only
+    points that lie within 0.25 m of a common line separates the bands.
+
+    Done in plain Python on <=8 points: numpy dispatch alone cost ~30 ms per
+    frame on the Atlas CPU for the same 28 candidate lines.
+    """
+    keep = ((points[:, 0] >= 0.12) & (points[:, 0] <= near_range)
+            & (side * points[:, 1] >= 0.08) & (np.abs(points[:, 1]) <= max_lateral))
+    selected = points[keep]
+    if len(selected) < 2:
+        return []
+    order = np.argsort(np.hypot(selected[:, 0], selected[:, 1]))[:max_points]
+    pts = [(float(selected[i, 0]), float(selected[i, 1])) for i in order]
+    subsets, seen = [], set()
+    for i in range(len(pts)):
+        xi, yi = pts[i]
+        for j in range(i + 1, len(pts)):
+            xj, yj = pts[j]
+            dx, dy = xj - xi, yj - yi
+            norm = math.hypot(dx, dy)
+            if not 0.25 <= norm <= 2.2:
+                continue
+            if abs(dx) < 0.4 * norm:
+                continue
+            ux, uy = dx / norm, dy / norm
+            chosen = []
+            for (x, y) in pts:
+                rx, ry = x - xi, y - yi
+                if abs(rx * -uy + ry * ux) <= perp and (rx * ux + ry * uy) >= -0.3:
+                    chosen.append((x, y))
+            if len(chosen) < 2:
+                continue
+            key = tuple(sorted((round(x, 2), round(y, 2)) for x, y in chosen))
+            if key in seen:
+                continue
+            seen.add(key)
+            # The straight band only seeds the row. Rows on this track curve
+            # (the left wall at the entry deviates 0.4 m over 1.6 m), so a
+            # straight band silently drops the far cones. Refit a parabola on
+            # the seed and re-select the side's cones around that curve.
+            pts_arr = np.asarray(sorted(chosen), dtype=float)
+            if len(pts_arr) >= 3:
+                curve_pts = selected
+                for _ in range(3):
+                    coef = np.polyfit(pts_arr[:, 0], pts_arr[:, 1], 2)
+                    resid = np.abs(curve_pts[:, 1] - np.polyval(coef, curve_pts[:, 0]))
+                    keep_pts = curve_pts[resid <= perp]
+                    if len(keep_pts) < 3 or len(keep_pts) == len(pts_arr):
+                        break
+                    pts_arr = keep_pts[np.argsort(keep_pts[:, 0])]
+                if len(pts_arr) < 3:
+                    pts_arr = np.asarray(sorted(chosen), dtype=float)
+            subsets.append(pts_arr)
+    return subsets
+
+
+def _candidates(points, side, near_range, max_points, max_lateral, max_curvature,
+                max_rows=6, wide_lateral=None):
+    """Nearest straight-band rows for one side, fitted once each.
+
+    Fitting is the expensive step on the Atlas CPU, so only the best few bands
+    (by point count and span, nearest first) are fitted, plus one nearest-link
+    chain for rows that curve away from the x axis.
+    """
+    seed_points = max(max_points, 10)
+    subsets = _line_rows(points, side, near_range, max_lateral, max_points=seed_points)
+    if not subsets and wide_lateral and wide_lateral > max_lateral:
+        # One row can sit just outside the normal window when the car itself is
+        # off-centre. Try a wider lateral band before falling back to a single
+        # row: fabricating the missing side by offsetting is what put the path
+        # on top of that row's cones.
+        subsets = _line_rows(points, side, near_range, wide_lateral, max_points=seed_points)
+    if not subsets:
+        return []
+    subsets = [s for s in subsets if len(s) >= 3 or float(np.ptp(s[:, 0])) >= 0.45]
+
+    def _near_dense(s):
+        # The brief: prefer rows that are close and dense. Rank by both, so a
+        # long sparse chain cannot outrank a tight near row (and vice versa).
+        span = max(0.35, float(np.ptp(s[:, 0])))
+        near = float(np.min(np.hypot(s[:, 0], s[:, 1])))
+        density = len(s) / span
+        return -(0.5 * (1.0 - min(1.0, near / max(0.5, near_range)))
+                 + 0.5 * min(1.0, density / 2.5))
+
+    subsets.sort(key=_near_dense)
+    rows, seen = [], set()
+    for subset in subsets[:max_rows]:
+        key = tuple(sorted((round(float(x), 2), round(float(y), 2)) for x, y in subset))
+        if key in seen:
+            continue
+        seen.add(key)
+        row = _row_from(subset, side, f'n{len(subset)}', max_curvature)
+        if row is not None:
+            rows.append(row)
+    pts = points[((points[:, 0] >= 0.12) & (points[:, 0] <= near_range)
+                  & (side * points[:, 1] >= 0.08) & (np.abs(points[:, 1]) <= max_lateral))]
+    if len(pts) >= 3:
+        chain = _chain(pts, int(np.argmin(np.hypot(pts[:, 0], pts[:, 1]))),
+                       min(5, max_points))
+        key = tuple(sorted((round(float(x), 2), round(float(y), 2)) for x, y in chain))
+        if key not in seen:
+            row = _row_from(chain, side, f'c{len(chain)}', max_curvature)
+            if row is not None:
+                rows.append(row)
+    return rows
+
+
+def _extend_range(curve, lo, hi, max_extra=1.0, kappa_lo=0.0, kappa_hi=0.0):
+    """Cover [lo, hi] by extending the fit along its own end tangents.
+
+    Two sparse rows often cover different x ranges (one starts where the car
+    is, the other stops at its third cone). Comparing them needs a common
+    domain; the extrapolation is capped so a short fit cannot invent a route.
+    """
+    out = curve
+    if lo < out[0, 0] - 1e-6:
+        extra = min(max_extra, float(out[0, 0] - lo))
+        if extra > 0.09 and len(out) >= 2:
+            # Walk backwards along the row's own curvature, not a straight line:
+            # a straight extension of a bent row drifts ~0.3 m within 1 m,
+            # which would make the far-cone continuity check meaningless.
+            heading = math.atan2(out[0, 1] - out[1, 1], out[0, 0] - out[1, 0])
+            handle, tail = out[0], []
+            for _ in range(int(round(extra / 0.10))):
+                heading -= kappa_lo * 0.10
+                handle = handle + 0.10 * np.array([math.cos(heading), math.sin(heading)])
+                if handle[0] >= out[0, 0] - 1e-9:
+                    break
+                tail.append(handle.copy())
+            if tail:
+                out = np.vstack((np.asarray(tail)[::-1], out))
+    if hi > out[-1, 0] + 1e-6:
+        extra = min(max_extra, float(hi - out[-1, 0]))
+        if extra > 0.09 and len(out) >= 2:
+            heading = math.atan2(out[-1, 1] - out[-2, 1], out[-1, 0] - out[-2, 0])
+            handle, tail = out[-1], []
+            for _ in range(int(round(extra / 0.10))):
+                heading += kappa_hi * 0.10
+                handle = handle + 0.10 * np.array([math.cos(heading), math.sin(heading)])
+                if handle[0] <= out[-1, 0] + 1e-9:
+                    break
+                tail.append(handle.copy())
+            if tail:
+                out = np.vstack((out, np.asarray(tail)))
+    return out
+
+
+def _prepare(row, xs, points, far_mask, far_points):
+    """Sample one row on the shared grid; reused by every pair it joins."""
+    curve = _extend_range(row.curve, float(xs[0]), float(xs[-1]),
+                          kappa_lo=float(row.curvature[0]),
+                          kappa_hi=float(row.curvature[-1]))
+    row.x_lo = float(curve[0, 0])
+    row.x_hi = float(curve[-1, 0])
+    row.y = np.interp(xs, curve[:, 0], curve[:, 1])
+    row.heading = np.interp(xs, row.curve[:, 0],
+                            np.arctan2(row.tangent[:, 1], row.tangent[:, 0]))
+    row.kappa = np.interp(xs, row.curve[:, 0], row.curvature)
+    if len(far_points) >= 2:
+        row.far = np.abs(relative_to_path(far_points, curve)[0])
+    else:
+        row.far = None
+
+
+def _score(left, right, xs, car, track, min_overlap, near_range, weights, points=None,
+           length_ref=3.0):
+    """Score one left/right pair; returns None when the pair is implausible."""
+    # Only compare where both rows actually have data after their bounded
+    # extrapolation; clamping a short row over the whole grid would fake a
+    # width that neither row supports.
+    i0 = int(np.searchsorted(xs, max(left.x_lo, right.x_lo)))
+    i1 = int(np.searchsorted(xs, min(left.x_hi, right.x_hi)))
+    if i1 - i0 < 3:
+        return None
+    width = left.y[i0:i1] - right.y[i0:i1]
+    if float(np.min(width)) < 0.45:
+        return None
+    median_width = _median(width)
+    # Scale-free corridor tests only: nothing here assumes a 1.5 m track.
+    if median_width < 0.40:
+        return None
+    if float(np.std(width) / max(1e-6, median_width)) > 0.32:
+        return None
+    # Minimum corridor: the car itself must fit, with a little slack.
+    if median_width < 2.0*(car.half_width + car.margin) + 0.15:
+        return None
+    # No cone may sit inside the corridor: if one does, this "pair" glued two
+    # rows that are really on the same side of the track.
+    if points is not None and len(points):
+        cxs, cys = xs[i0:i1], 0.5*(left.y[i0:i1] + right.y[i0:i1])
+        cand = points[(points[:, 0] >= cxs[0]) & (points[:, 0] <= cxs[-1])]
+        if len(cand):
+            cy = np.interp(cand[:, 0], cxs, cys)
+            inside = np.abs(cand[:, 1] - cy) < 0.25 * median_width
+            inner = cand[inside]
+            if len(inner) >= 2:
+                # A compact cluster inside the corridor is a cone island; the
+                # planned line may pass beside it (the clearance gate handles
+                # it). A long interior structure means two rows were glued.
+                sx = float(np.ptp(inner[:, 0])); sy = float(np.ptp(inner[:, 1]))
+                if max(sx, sy) > 1.6:
+                    return None
+    width_cv = float(np.std(width) / max(1e-6, median_width))
+    dpsi = np.abs(np.arctan2(np.sin(left.heading[i0:i1] - right.heading[i0:i1]),
+                             np.cos(left.heading[i0:i1] - right.heading[i0:i1])))
+    median_dpsi = _median(dpsi)
+    if median_dpsi > math.radians(20.0):
+        return None
+    # A side wall runs roughly along the car axis. The flared mouth has a
+    # transverse edge (dy/dx ~ 2.2, i.e. 65 deg) that fits a line perfectly;
+    # pairing it with the opposite wall produced a centreline across the mouth.
+    left_psi = np.median(np.arctan2(np.diff(left.y), np.diff(xs)))
+    right_psi = np.median(np.arctan2(np.diff(right.y), np.diff(xs)))
+    if max(abs(left_psi), abs(right_psi)) > math.radians(55.0):
+        return None
+    dkappa = np.abs(left.kappa[i0:i1] - right.kappa[i0:i1])
+    # "Length" is the span actually observed, never the bounded extrapolation.
+    length = min(float(np.ptp(left.points[:, 0])), float(np.ptp(right.points[:, 0])))
+    if length < 0.45:
+        return None
+    if left.far is None or right.far is None:
+        s_continue, residual = 0.55, 0.0
+    else:
+        residual = _median(np.minimum(left.far, right.far))
+        s_continue = 1.0 - min(1.0, residual / 0.70)
+
+    s_near = 1.0 - min(1.0, 0.5 * (left.near + right.near) / near_range)
+    density = 2.0 * left.density * right.density / max(1e-6, left.density + right.density)
+    s_dense = min(1.0, density / 1.8)
+    penalty = (0.5 * min(1.0, width_cv / 0.15)
+               + 0.3 * min(1.0, median_dpsi / math.radians(12.0))
+               + 0.2 * min(1.0, _median(dkappa) / 0.30))
+    # Compare the pair to the corridor width measured on this layout, not
+    # to a 1.5 m constant: a genuinely wide corridor scored as dissimilar.
+    track_fit = 1.0 - min(1.0, abs(median_width - track) / max(0.25, 0.40 * track))
+    s_similar = max(0.0, 1.0 - penalty) * track_fit
+    # Length is relative to the window we look through, so a longer row
+    # keeps paying off instead of saturating at a fixed 3 m.
+    s_length = min(1.0, length / max(0.8, length_ref))
+
+    w_near, w_dense, w_sim, w_len, w_cont = weights
+    centre = 0.5 * (left.y[i0:i1] + right.y[i0:i1])
+    # Where the corridor sits at the car's cross-section. A pair that leaves
+    # the car 0.7 m outside its centreline is a different row pair (the outer
+    # ones at the start line), even if it looks parallel and 1.5 m wide.
+    cx = float(xs[i0])
+    span = max(1e-6, float(xs[i1 - 1]) - cx)
+    slope = (float(centre[-1]) - float(centre[0])) / span
+    at_car = float(centre[0]) + (0.0 - cx) * slope
+    score = (w_near * s_near + w_dense * s_dense + w_sim * s_similar
+             + w_len * s_length + w_cont * s_continue)
+    score *= max(0.25, 1.0 - 0.6 * min(1.0, abs(at_car) / (0.75 * track)))
+    parts = dict(score=round(score, 4), near=round(s_near, 3), dense=round(s_dense, 3),
+                 at_car=round(at_car, 3),
+                 similar=round(s_similar, 3), length=round(s_length, 3),
+                 continue_=round(s_continue, 3), residual=round(residual, 3),
+                 width=round(median_width, 3), overlap=round(length, 3),
+                 left_k=left.tag, right_k=right.tag, left_pts=len(left.points),
+                 right_pts=len(right.points))
+    if left.stale or right.stale:
+        score *= 0.9
+        parts['score'] = round(score, 4)
+        parts['stale'] = 'left' if left.stale else 'right'
+    return Choice(left, right, score, median_width, length, parts)
+
+
+def _median(values):
+    """Median of a short array without numpy's per-call dispatch cost.
+
+    np.median costs ~0.2 ms on the Atlas CPU and _score calls it four times
+    per pair; sorting 24 floats in Python is two orders of magnitude cheaper.
+    """
+    ordered = sorted(values.tolist())
+    count = len(ordered)
+    if not count:
+        return 0.0
+    middle = count // 2
+    if count % 2:
+        return float(ordered[middle])
+    return 0.5 * (ordered[middle - 1] + ordered[middle])
+
+
+def _kappa_near(curve, x_target, half_window=0.7):
+    """Curvature of a sampled row around x_target (local quadratic)."""
+    if len(curve) < 5:
+        return None
+    mask = np.abs(curve[:, 0] - x_target) <= half_window
+    if mask.sum() < 5:
+        return None
+    wx = curve[mask, 0]
+    wy = curve[mask, 1]
+    wx = wx - wx.mean()
+    try:
+        a2, a1, _ = np.polyfit(wx, wy, 2)
+    except Exception:
+        return None
+    return float(2.0 * a2 / np.power(1.0 + a1 * a1, 1.5))
+
+
+def _curvature_of(centers, max_kappa=1.2):
+    """Signed curvature of a sampled centreline (y = f(x) form).
+
+    The centreline is built from two fitted rows, so it carries a little
+    sample noise; differentiating twice turned that into +/-3 1/m spikes and
+    the curvature feedforward then pinned the steering at full lock on a
+    straight. Smooth first, then differentiate, then clamp to the car's
+    physical range (min radius 0.83 m -> 1.2 1/m).
+    """
+    x = centers[:, 0]
+    if len(centers) < 5 or np.any(np.diff(x) <= 1e-6):
+        return np.zeros(len(centers))
+    y = centers[:, 1]
+    window = 5
+    padded = np.r_[y[:2][::-1], y, y[-2:][::-1]]
+    smooth = np.convolve(padded, np.ones(window) / window, mode="valid")
+    slope = np.gradient(smooth, x)
+    d_slope = np.gradient(slope, x)
+    curvature = d_slope / np.power(1.0 + slope * slope, 1.5)
+    return np.clip(curvature, -max_kappa, max_kappa)
+
+
+def _extend_center(centers, curvature, extra):
+    """Short, smooth tail so the aim point can sit ahead of the last cone row."""
+    if extra <= 0.0 or len(centers) < 3:
+        return centers, curvature
+    step_length = 0.10
+    count = max(1, int(round(extra / step_length)))
+    kappa = float(curvature[-1])
+    heading = math.atan2(centers[-1, 1] - centers[-2, 1],
+                         centers[-1, 0] - centers[-2, 0])
+    point = centers[-1].copy()
+    tail, tail_kappa = [], []
+    for _ in range(count):
+        heading += kappa * step_length
+        point = point + step_length * np.array([math.cos(heading), math.sin(heading)])
+        tail.append(point.copy())
+        tail_kappa.append(kappa)
+    if not tail:
+        return centers, curvature
+    return (np.vstack((centers, np.asarray(tail))),
+            np.r_[curvature, np.asarray(tail_kappa)])
+
+
+class PairPlanner:
+    """Bilateral nearest-dense pairing planner with the DensePlanner surface."""
+
+    def __init__(self, car, settings):
+        self.car = car
+        self.near_range = float(settings.get('pair_near_range_m', 3.6))
+        self.window = float(settings.get('pair_window_m', 2.4))
+        self.max_points = int(settings.get('pair_max_points', 8))
+        self.max_lateral = float(settings.get('pair_max_lateral_m', 1.7))
+        self.max_lateral_wide = float(settings.get('pair_max_lateral_wide_m', 2.4))
+        self.min_overlap = float(settings.get('pair_min_overlap_m', 0.6))
+        self.max_extension = float(settings.get('pair_max_extension_m', 0.9))
+        self.track = float(settings.get('track_width_m', 1.5))
+        self.base_lookahead = float(settings.get('lookahead_base_m', .8))
+        self.speed_lookahead = float(settings.get('lookahead_speed_seconds', .25))
+        self.weights = (float(settings.get('pair_weight_near', .30)),
+                        float(settings.get('pair_weight_density', .25)),
+                        float(settings.get('pair_weight_similarity', .25)),
+                        float(settings.get('pair_weight_length', .12)),
+                        float(settings.get('pair_weight_continuity', .08)))
+        self.max_curvature = float(settings.get('pair_max_curvature', 1.4))
+        self.single_side = bool(settings.get('pair_single_side', True))
+        self.cross_gain = float(settings.get('cross_track_gain', 0.6))
+        # The node only allows the fallback after it has actually driven:
+        # at the start line a single visible row says nothing about where the
+        # car sits inside the corridor.
+        self.allow_single = False
+        self.degraded_side = None
+        self.degraded_at = None
+        self.last_kappa = None
+        self.last_centers = None
+        # Last good rows in the car frame, bridged for ~1 s when one side
+        # temporarily sees fewer than two cones.
+        self.prev_rows = None
+        self.prev_rows_at = None
+        # Pair hysteresis: keep the same two rows while they are still in
+        # view instead of re-picking every frame (that flipping is what
+        # made the servo oscillate and the car go straight at the entry).
+        self.last_pair_key = None
+        self.reject = None
+        self.width_hist = []
+        # Short-term memory of this side's cones in the car frame. Two
+        # points per row make the chord slope pure noise, which flipped the
+        # route heading every few frames and left the car driving straight.
+        self.map = []
+        self.map_window = float(settings.get('map_window_s', 2.5))
+        # Sudden-change channel: if the map stops explaining what the lidar
+        # sees (a real bend the map has not caught up with), drop it instead
+        # of averaging two contradictory corridors.
+        self.map_miss = 0
+        # Track width estimated online: starts at the nominal value and
+        # converges on whatever this layout actually is.
+        # Cross-frame fusion of the centreline itself: the fitted boundary
+        # jitters with each re-clustering, so blending the line over ~0.6 s
+        # is what actually steadies the route heading.
+        self.fused_centers = None
+        self.fused_at = None
+        self.width = None
+        self.width_at = None
+        self.last_heading = None
+        self.smooth_target = None
+        self.smooth_heading = None
+        self.tight_latch = False
+        self.tight_at = None
+        self.last_row_stats = {}
+        self.last_pair = None
+        # The bilateral centreline replaces the right-angle shortcut; keep the
+        # attributes so the node's getattr() checks keep working.
+        self.right_turn = False
+        self.corner_target = None
+
+    # ---- helpers -------------------------------------------------
+    def _y_limit(self):
+        return max(0.15, self.track / 2.0 - self.car.half_width - self.car.margin)
+
+    def _update_width(self, measured, now):
+        if self.width is None:
+            self.width = measured
+        elif abs(measured - self.width) <= 0.25:
+            # A jump is a mis-pairing, not a narrower lane: keep the trusted
+            # width, exactly like the legacy planner's guard.
+            self.width += 0.15 * (measured - self.width)
+        self.width_at = now
+
+    def _update_tight(self, curvature, now):
+        peak = float(np.max(np.abs(curvature)))
+        if peak > 0.45 and not self.tight_latch:
+            self.tight_latch = True
+            self.tight_at = now
+        elif peak < 0.25 and self.tight_at is not None and now - self.tight_at > 1.0:
+            self.tight_latch = False
+
+    def hold(self, speed):
+        if self.last_heading is None:
+            return None
+        heading = self.last_heading
+        width = self.width if self.width is not None else self.track
+        look = max(.45, min(1.2, .7 + .25 * abs(speed)))
+        distance = np.linspace(.05, max(1.2, look + .6), 30)
+        centers = np.column_stack((distance * math.cos(heading),
+                                   distance * math.sin(heading)))
+        empty = np.empty((0, 2))
+        return DenseRoute(centers, empty, empty, centers, 0, width,
+                          np.zeros(len(distance)), look,
+                          (look * math.cos(heading), look * math.sin(heading)),
+                          heading, True)
+
+    def _single_from(self, rows, side):
+        """Route anchored on one visible row, offset by half the track width."""
+        if not self.single_side or not self.allow_single or not rows:
+            return None
+        row = max(rows, key=lambda r: (len(r.points), -r.near))
+        # This track's cones are sparse; the nearest cone of a usable row can
+        # sit ~2 m from the laser.
+        if len(row.points) < 2 or row.near > 2.6:
+            return None
+        row_lat = float(relative_to_path(np.zeros((1, 2)), row.curve)[0][0])
+        if abs(abs(row_lat) - self.track / 2.0) > 0.35:
+            return None
+        normal = np.column_stack((-row.tangent[:, 1], row.tangent[:, 0]))
+        centers = row.curve - side * (self.track / 2.0) * normal
+        keep = np.r_[True, np.diff(centers[:, 0]) > 1e-6]
+        centers = centers[keep]
+        if len(centers) < 4:
+            return None
+        empty = np.empty((0, 2))
+        parts = dict(score=0.0, near=round(row.near, 3), dense=round(row.density, 3),
+                     similar=0.0, length=0.0, continue_=0.0, width=self.track,
+                     at_car=round(row_lat - side * self.track / 2.0, 3),
+                     degraded='left' if side > 0 else 'right',
+                     left_pts=len(row.points) if side > 0 else 0,
+                     right_pts=len(row.points) if side < 0 else 0,
+                     left_k=row.tag if side > 0 else '-',
+                     right_k=row.tag if side < 0 else '-')
+        self.degraded_side = side
+        return (centers, self.track, parts,
+                row.points if side > 0 else empty,
+                row.points if side < 0 else empty)
+
+    def _single_side(self, left_rows, right_rows):
+        """Try the side in use first, then the other one.
+
+        The old version filtered to the remembered side and returned None if
+        every row on it failed the geometric gate, even when the opposite side
+        had a perfectly usable row (this is what ended the 19:30 run).
+        """
+        order = [(left_rows, 1.0), (right_rows, -1.0)]
+        if self.degraded_side == -1.0:
+            order.reverse()
+        for rows, side in order:
+            route = self._single_from(rows, side)
+            if route is not None:
+                return route
+        return None
+
+    @staticmethod
+    def _quality(rows):
+        if not rows:
+            return 0.0
+        return max(r.density / (1.0 + r.near) for r in rows)
+
+    # ---- main entry ----------------------------------------------
+    def plan(self, cones, speed, now, reference=None, raw_points=None, ego=None):
+        points = np.asarray(cones, dtype=float).reshape(-1, 2) if cones is not None \
+            else np.empty((0, 2))
+        points = points[np.all(np.isfinite(points), axis=1)]
+        # Local cone map: the fit runs on an accumulated map in the car frame,
+        # not on this frame's four or five flickering points. That is what makes
+        # the route continuous instead of re-guessed every 50 ms.
+        if ego is not None:
+            angle, travel = float(ego[0]), float(ego[1])
+            if abs(angle) < 1e-6:
+                translation = np.array([travel, 0.0])
+            else:
+                translation = travel*np.array([math.sin(angle), 1.0-math.cos(angle)])/angle
+            rotation = np.array([[math.cos(angle), -math.sin(angle)],
+                                 [math.sin(angle), math.cos(angle)]])
+            moved = []
+            for (x, y, ts) in self.map:
+                if now - ts > self.map_window:
+                    continue
+                q = (np.array([x, y]) - translation) @ rotation
+                if q[0] > 0.05 and abs(q[1]) <= 3.0:
+                    moved.append((float(q[0]), float(q[1]), ts))
+            self.map = moved
+        for (x, y) in points:
+            if not (0.10 <= x <= self.near_range) or abs(y) > self.max_lateral_wide:
+                continue
+            best_k, best_d = -1, 1e9
+            for k, (mx, my, _ts) in enumerate(self.map):
+                dd = (mx-x)**2 + (my-y)**2
+                if dd < best_d:
+                    best_d, best_k = dd, k
+            if best_k >= 0 and best_d < 0.09:
+                mx, my, _ts = self.map[best_k]
+                self.map[best_k] = (0.5*(mx+x), 0.5*(my+y), now)
+            else:
+                self.map.append((float(x), float(y), now))
+        if len(self.map) > 160:
+            del self.map[:len(self.map)-160]
+        if len(self.map) >= 6 and len(points) >= 6:
+            mp = np.array([[x, y] for (x, y, _t) in self.map], dtype=float)
+            live = points[(points[:, 0] >= 0.10) & (points[:, 0] <= self.near_range)]
+            if len(live):
+                d = np.sqrt(((live[:, None, :] - mp[None, :, :])**2).sum(axis=2)).min(axis=1)
+                miss = float(np.mean(d > 0.45))
+                if miss > 0.5:
+                    self.map_miss += 1
+                else:
+                    self.map_miss = 0
+                if self.map_miss >= 3:
+                    self.map = [(float(x), float(y), now) for (x, y) in live]
+                    self.map_miss = 0
+                    self.fused_centers = None
+        map_points = (np.array([[x, y] for (x, y, _t) in self.map], dtype=float)
+                      if len(self.map) >= 6 else None)
+        fit_points = map_points if map_points is not None else points
+        left_rows = _candidates(fit_points, 1, self.near_range, self.max_points,
+                                self.max_lateral, self.max_curvature,
+                                wide_lateral=self.max_lateral_wide)
+        right_rows = _candidates(fit_points, -1, self.near_range, self.max_points,
+                                 self.max_lateral, self.max_curvature,
+                                 wide_lateral=self.max_lateral_wide)
+        # Bridge a side that temporarily has almost no cones: reuse the last
+        # good row, moved by the ego motion since then. Fabricating it from the
+        # other row's offset is what put the path on top of that row's cones.
+        if ego is not None and self.prev_rows is not None and self.prev_rows_at is not None \
+                and now - self.prev_rows_at <= 1.2:
+            angle, travel = float(ego[0]), float(ego[1])
+            if abs(angle) < 1e-6:
+                translation = np.array([travel, 0.0])
+            else:
+                translation = travel*np.array([math.sin(angle), 1.0-math.cos(angle)])/angle
+            rotation = np.array([[math.cos(angle), -math.sin(angle)],
+                                 [math.sin(angle), math.cos(angle)]])
+            for side, rows_now in ((1, left_rows), (-1, right_rows)):
+                if len(rows_now) >= 2:
+                    continue
+                old_pts = self.prev_rows.get(side)
+                if old_pts is None or len(old_pts) < 2:
+                    continue
+                moved = (old_pts - translation) @ rotation
+                moved = moved[(moved[:, 0] > 0.10) & (moved[:, 0] < 5.0)]
+                if len(moved) < 2:
+                    continue
+                stale = _row_from(moved, side, f's{len(moved)}', self.max_curvature)
+                if stale is not None:
+                    stale.stale = True
+                    (left_rows if side > 0 else right_rows).append(stale)
+        self.last_row_stats = {1: {'candidates': len(left_rows)},
+                               -1: {'candidates': len(right_rows)}}
+        if not left_rows and not right_rows:
+            self.last_pair = None
+            self.reject = 'no_rows'
+            return None
+
+        rows = left_rows + right_rows
+        lo = max(0.15, min(float(row.curve[0, 0]) for row in rows))
+        # Fixed-length route window: the old 'longest row end' domain changed
+        # length every frame (1.5 m -> 3.5 m), which made consecutive paths
+        # incomparable and tripped the node's startup consistency check.
+        hi = min(max(float(row.curve[-1, 0]) for row in rows), lo + self.window)
+        if hi - lo < self.min_overlap:
+            self.last_pair = None
+            return None
+        xs = np.linspace(lo, hi, 24)
+        far_mask = ((points[:, 0] > hi + 0.15) & (points[:, 0] <= 5.0)
+                    & (np.abs(points[:, 1]) <= 1.35))
+        far_points = points[far_mask]
+        for row in rows:
+            _prepare(row, xs, points, far_mask, far_points)
+
+        best = None
+        scored = []
+        for left in left_rows:
+            for right in right_rows:
+                # Cheap pre-screen on the two end samples: most cross-side
+                # combinations (inner row against outer row) die here for the
+                # cost of four float subtractions instead of a full score.
+                w0 = left.y[0] - right.y[0]
+                w1 = left.y[-1] - right.y[-1]
+                if not (0.45 <= w0 <= 2.45 and 0.45 <= w1 <= 2.45):
+                    continue
+                track_ref = (float(np.median(self.width_hist))
+                             if len(self.width_hist) >= 5 else self.track)
+                choice = _score(left, right, xs, self.car, track_ref,
+                                self.min_overlap, self.near_range, self.weights,
+                                points=points, length_ref=self.window)
+                if choice is None:
+                    continue
+                # Continuity bonus: sparse starts let the pair flip between the
+                # inner and outer row every frame, which alternated the
+                # centreline slope (+/-0.5 1/m) and made the car weave.
+                if self.last_centers is not None and len(self.last_centers) > 2:
+                    cand = np.column_stack((xs, 0.5 * (left.y + right.y)))
+                    offset, _ = relative_to_path(cand, self.last_centers)
+                    overlap = (cand[:, 0] >= self.last_centers[0, 0]) & (cand[:, 0] <= self.last_centers[-1, 0])
+                    if np.any(overlap):
+                        step = float(np.max(np.abs(offset[overlap])))
+                        choice.score += 0.20 * (1.0 - min(1.0, step / 0.5))
+                        choice.parts['score'] = round(choice.score, 4)
+                pair_key = (tuple(np.round(left.points, 1).ravel()),
+                            tuple(np.round(right.points, 1).ravel()))
+                if pair_key == self.last_pair_key:
+                    choice.score += 0.12
+                    choice.parts['score'] = round(choice.score, 4)
+                    choice.parts['held'] = True
+                key = (choice.score, -0.5 * (left.near + right.near),
+                       choice.length, len(left.points), len(right.points))
+                scored.append(choice)
+                if best is None or key > best[0]:
+                    best = (key, choice)
+        choice = best[1] if best is not None else None
+
+        if choice is not None:
+            self.width_hist.append(float(choice.width))
+            del self.width_hist[:-30]
+            self.last_pair_key = (tuple(np.round(choice.left.points, 1).ravel()),
+                                  tuple(np.round(choice.right.points, 1).ravel()))
+        single = None
+        at_car = abs(choice.parts.get('at_car', 0.0)) if choice is not None else 1.0
+        ql, qr = self._quality(left_rows), self._quality(right_rows)
+        # Follow the denser, nearer boundary when the paired centreline leaves
+        # the car off-centre (the S transition, where the "right" row belongs
+        # to the next section). Below that the midpoint stays the default.
+        # Only when no pair exists at all: the route must stay the centreline of
+        # the two rows, not a line offset from whichever side looks denser.
+        if choice is None:
+            single = self._single_side(left_rows, right_rows)
+        if choice is None and single is None:
+            self.last_pair = None
+            self.reject = 'no_pair_no_single'
+            return None
+        if single is not None:
+            choice = None
+            self.degraded_at = now
+
+        if choice is not None:
+            self.degraded_side = None
+            self.degraded_at = None
+            width = choice.width
+            parts = choice.parts
+            left_points, right_points = choice.left.points, choice.right.points
+            centers = np.column_stack((xs, 0.5 * (choice.left.y + choice.right.y)))
+            # One sparse side must not cap the baseline: when the other row is
+            # long enough to be trusted and the width is known, the centreline
+            # is that row offset by half a width (parallel assumption). Same
+            # corridor, but the shape comes from the 2-3 m row, not the 1 m one.
+            left_span = float(np.ptp(choice.left.points[:, 0]))
+            right_span = float(np.ptp(choice.right.points[:, 0]))
+            if min(left_span, right_span) < 1.2 <= 2.0 <= max(left_span, right_span):
+                longer = choice.left if left_span >= right_span else choice.right
+                side = 1.0 if longer is choice.left else -1.0
+                row_lat = float(relative_to_path(np.zeros((1, 2)), longer.curve)[0][0])
+                if abs(abs(row_lat) - self.track / 2.0) <= 0.45:
+                    normal = np.column_stack((-longer.tangent[:, 1], longer.tangent[:, 0]))
+                    base_width = self.width if self.width else self.track
+                    parallel = longer.curve - side * (base_width / 2.0) * normal
+                    keep = np.r_[True, np.diff(parallel[:, 0]) > 1e-6]
+                    parallel = parallel[keep]
+                    if len(parallel) >= 6:
+                        centers = parallel
+                        parts['partner'] = 'parallel'
+                        parts['parallel_span'] = round(max(left_span, right_span), 2)
+        else:
+            centers, width, parts, left_points, right_points = single
+        # Blend with the previous centreline (moved by the ego motion) so the
+        # route cannot jump sideways every time the rows are re-clustered.
+        if (self.fused_centers is not None and ego is not None
+                and self.fused_at is not None and now - self.fused_at <= 0.6):
+            angle, travel = float(ego[0]), float(ego[1])
+            if abs(angle) < 1e-6:
+                translation = np.array([travel, 0.0])
+            else:
+                translation = travel*np.array([math.sin(angle), 1.0-math.cos(angle)])/angle
+            rotation = np.array([[math.cos(angle), -math.sin(angle)],
+                                 [math.sin(angle), math.cos(angle)]])
+            old = (self.fused_centers - translation) @ rotation
+            inside = (centers[:, 0] >= old[0, 0]) & (centers[:, 0] <= old[-1, 0])
+            if int(np.sum(inside)) >= 4:
+                y_old = np.interp(centers[inside, 0], old[:, 0], old[:, 1])
+                centres_new = centers.copy()
+                centres_new[inside, 1] = 0.55*centers[inside, 1] + 0.45*y_old
+                centers = centres_new
+        self.fused_centers = centers.copy()
+        self.fused_at = now
+        curvature = _curvature_of(centers)
+        length = np.r_[0.0, np.cumsum(np.linalg.norm(np.diff(centers, axis=0), axis=1))]
+
+        # Speed-scaled preview, no longer flattened by the old 1.1 m clamp: at
+        # 1.5 m/s the aim point now sits ~1.3 m out instead of a fixed 1.05 m.
+        preview = self.base_lookahead + self.speed_lookahead * abs(speed)
+        # Only a mild curvature discount: dividing by the sharpest curvature in
+        # the whole window collapsed the preview to ~1 m exactly in the bends,
+        # which is where the car needs to look furthest ahead.
+        preview /= 1.0 + 0.05 * float(np.max(np.abs(curvature)))
+        preview = max(0.7, min(1.7, preview))
+        remaining = max(0.0, preview - max(0.0, float(centers[0, 0])))
+        remaining = max(remaining, min(0.55, float(length[-1])))
+        extension = 0.0
+        if remaining > length[-1]:
+            extension = min(remaining - length[-1], self.max_extension)
+            centers, curvature = _extend_center(centers, curvature, extension)
+            length = np.r_[0.0, np.cumsum(np.linalg.norm(np.diff(centers, axis=0), axis=1))]
+            remaining = min(remaining, float(length[-1]))
+
+        if remaining >= length[-1] - 1e-9:
+            target = centers[-1].copy()
+            direction = centers[-1] - centers[-2]
+            index = len(centers) - 1
+        else:
+            target = np.array([float(np.interp(remaining, length, centers[:, i]))
+                               for i in (0, 1)])
+            index = int(np.searchsorted(length, remaining))
+            index = min(max(index, 1), len(centers) - 1)
+            direction = centers[index] - centers[index - 1]
+        # Curvature for the feedforward: local quadratic through the samples
+        # around the aim point. The window maximum of a twice-differentiated
+        # centreline picked up end spikes (a straight corridor reported -0.45
+        # and the car steered -20 deg on a straight).
+        kappa_target = 0.0
+        lo_i = max(0, index - 4)
+        hi_i = min(len(centers), index + 5)
+        if hi_i - lo_i >= 5:
+            wx = centers[lo_i:hi_i, 0]
+            wy = centers[lo_i:hi_i, 1]
+            wx = wx - wx.mean()
+            a2, a1, _ = np.polyfit(wx, wy, 2)
+            kappa_target = float(2.0 * a2 / np.power(1.0 + a1 * a1, 1.5))
+        # The pair baseline is min(left, right), so one sparse side hides a
+        # three-metre row on the other. When the rows are similar by the score
+        # above, their curvature is too: take it from the longer row.
+        if choice is not None:
+            left_span = float(np.ptp(choice.left.points[:, 0]))
+            right_span = float(np.ptp(choice.right.points[:, 0]))
+            longer = choice.left if left_span >= right_span else choice.right
+            if min(left_span, right_span) < 1.6 <= max(left_span, right_span):
+                row_kappa = _kappa_near(longer.curve, float(target[0]))
+                if row_kappa is not None:
+                    kappa_target = row_kappa
+
+        if float(np.linalg.norm(direction)) < 1e-9:
+            direction = np.array([1.0, 0.0])
+        heading = math.atan2(direction[1], direction[0])
+
+        # Keep the car inside the middle region of the 1.5 m track: never aim
+        # further sideways than the footprint allows.
+        limit = self._y_limit()
+        # Cross-track correction: where the corridor actually sits at the car's
+        # cross-section (extrapolated backwards, not the distance to the first
+        # sample). Aiming one metre ahead alone left the car 0.3-0.7 m outside
+        # the centre for the whole run.
+        lateral = 0.0
+        if len(centers) >= 2:
+            dx = float(centers[1, 0] - centers[0, 0])
+            if abs(dx) > 1e-6:
+                slope = float((centers[1, 1] - centers[0, 1]) / dx)
+                lateral = float(centers[0, 1] - slope * centers[0, 0])
+        # Only correct the cross-track error when the fitted line starts near
+        # the car. At the flared mouth it begins ~0.4 m ahead and extrapolating
+        # it backwards shifted the aim 0.17 m right (“turns right where it should not”).
+        if len(centers) and float(centers[0, 0]) <= 0.35:
+            target[1] = float(np.clip(target[1] + self.cross_gain * lateral, -limit, limit))
+
+        if self.last_heading is not None:
+            jump = math.atan2(math.sin(heading - self.last_heading),
+                              math.cos(heading - self.last_heading))
+            if abs(jump) > math.radians(40.0):
+                # A >40 deg jump between two plans is a fit glitch; hold the
+                # previous heading until the fit is continuous again.
+                return self.hold(speed)
+
+        if self.smooth_target is None:
+            self.smooth_target = target.astype(float).copy()
+            self.smooth_heading = heading
+        else:
+            alpha = 0.5
+            step_target = alpha * (target - self.smooth_target)
+            # Rate-limit the aim point: a pair <-> single-row switch can move it
+            # half a metre in one frame, which the servo then chases as a wobble.
+            norm = float(np.linalg.norm(step_target))
+            if norm > 0.20:
+                step_target *= 0.20 / norm
+            self.smooth_target = self.smooth_target + step_target
+            delta = math.atan2(math.sin(heading - self.smooth_heading),
+                               math.cos(heading - self.smooth_heading))
+            self.smooth_heading = math.atan2(math.sin(self.smooth_heading + alpha * delta),
+                                             math.cos(self.smooth_heading + alpha * delta))
+        target = self.smooth_target.copy()
+        heading = self.smooth_heading
+
+        if choice is not None:
+            self._update_width(width, now)
+        elif self.width is None:
+            # Degraded (single-row) route before any pair was ever seen: the
+            # startup check, the record and status() all need a number here.
+            # A None width crashed the node with "unsupported format string
+            # passed to NoneType.__format__" on the very first frames.
+            self.width = float(width)
+        self._update_tight(curvature, now)
+        # The route heading flipped sign every few frames (row re-selection),
+        # which averaged the steering to zero. Bound and smooth it instead of
+        # latching point sets that move as the car moves.
+        if self.last_heading is not None:
+            dh = math.atan2(math.sin(heading - self.last_heading),
+                            math.cos(heading - self.last_heading))
+            dh = max(-math.radians(9.0), min(math.radians(9.0), dh))
+            heading = self.last_heading + 0.55 * dh
+        if self.last_kappa is not None:
+            kappa_target = self.last_kappa + 0.45 * (kappa_target - self.last_kappa)
+        self.last_heading = heading
+        parts['lateral_to_center'] = round(lateral, 3)
+        parts['extension_m'] = round(extension, 3)
+        parts['preview_m'] = round(preview, 3)
+        parts['kappa_target'] = round(kappa_target, 3)
+        self.last_pair = parts
+        self.last_row_stats[1].update(points=int(np.sum(left_points[:, 0] >= 0)) if len(left_points) else 0,
+                                      density=round(parts.get('dense', 0.0), 3), usable=len(left_points) > 0)
+        self.last_row_stats[-1].update(points=int(len(right_points)),
+                                       density=round(parts.get('dense', 0.0), 3), usable=len(right_points) > 0)
+
+        # Refuse a route that runs through cone points: the single-row
+        # fallback offset by half a track can land exactly on the other row's
+        # cones (seen at 0.43 m dead ahead), and then the clearance gate has to
+        # emergency-stop a route the planner should never have produced.
+        # Check raw returns, not the clusters: a row that failed to cluster
+        # (the crash at 20:25) left the centreline running along its cones and
+        # the guard saw nothing.
+        source = points if raw_points is None else np.asarray(raw_points, dtype=float).reshape(-1, 2)
+        ahead = source[(source[:, 0] > 0.15) & (source[:, 0] < 1.2)]
+        if len(ahead):
+            lateral_ahead, _ = relative_to_path(ahead, centers)
+            if np.any(np.abs(lateral_ahead) < self.car.half_width + self.car.margin + 0.02):
+                self.last_pair = None
+                self.reject = 'cone_on_path'
+                return None
+        previous = self.prev_rows or {}
+        self.prev_rows = {1: (left_points.copy() if len(left_points) >= 2
+                              else previous.get(1)),
+                          -1: (right_points.copy() if len(right_points) >= 2
+                               else previous.get(-1))}
+        self.prev_rows_at = now
+        self.reject = None
+        self.last_centers = centers.copy()
+        return DenseRoute(centers, left_points, right_points,
+                          centers, 0, self.width, curvature, preview,
+                          tuple(float(v) for v in target), heading,
+                          extension > 0.0, curvature_target=kappa_target)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,4051 @@
+[
+  {
+    "bag": "rosbags/20261109_164009_994806_observe",
+    "source": "tools/s_bend/records/runs/20261109_164009_994806_observe.json",
+    "source_sha256": "c166d44047131adbb547a36043b16761095118287fabdcd587f71f8acf3b7208",
+    "mode": "observe",
+    "messages": 258,
+    "scan": 75,
+    "odom": 0,
+    "control": 0,
+    "duration_s": 7.717812626,
+    "topics": {
+      "/replay/events": 33,
+      "/replay/plan": 75,
+      "/scan": 75,
+      "/replay/scan_info": 75
+    }
+  },
+  {
+    "bag": "rosbags/20261109_164536_142107_observe",
+    "source": "tools/s_bend/records/runs/20261109_164536_142107_observe.json",
+    "source_sha256": "35bb914099cbba61258ab74fb49dd43f6f9f516103010c7675f2f362c1b3be93",
+    "mode": "observe",
+    "messages": 242,
+    "scan": 69,
+    "odom": 0,
+    "control": 0,
+    "duration_s": 6.805714783,
+    "topics": {
+      "/replay/events": 35,
+      "/replay/plan": 69,
+      "/scan": 69,
+      "/replay/scan_info": 69
+    }
+  },
+  {
+    "bag": "rosbags/20261109_170049_003703_observe",
+    "source": "tools/s_bend/records/runs/20261109_170049_003703_observe.json",
+    "source_sha256": "81e8fe5a218f88481c159b602c49d2fd3c94963094f197fa54aa8dbb072bca88",
+    "mode": "observe",
+    "messages": 313,
+    "scan": 78,
+    "odom": 0,
+    "control": 0,
+    "duration_s": 7.713508359,
+    "topics": {
+      "/replay/events": 79,
+      "/replay/plan": 78,
+      "/scan": 78,
+      "/replay/scan_info": 78
+    }
+  },
+  {
+    "bag": "rosbags/20261109_170252_959192_drive",
+    "source": "tools/s_bend/records/runs/20261109_170252_959192_drive.json",
+    "source_sha256": "37de1924d32ace9ea1124594ef2e3245c07598f734aa7ec590bb6f33193b7dfb",
+    "mode": "drive",
+    "messages": 525,
+    "scan": 60,
+    "odom": 0,
+    "control": 172,
+    "duration_s": 8.760592038,
+    "topics": {
+      "/replay/events": 173,
+      "/replay/control_pwm": 172,
+      "/replay/plan": 60,
+      "/scan": 60,
+      "/replay/scan_info": 60
+    }
+  },
+  {
+    "bag": "rosbags/20261111_212007_observe_hi2c0f6s",
+    "source": "tools/s_bend/records/runs/20261111_212007_observe_hi2c0f6s.jsonl",
+    "source_sha256": "904c69509aa0501e77764cbed4cb2558052eb066bb4d0351f35686974cca4732",
+    "mode": "observe",
+    "messages": 252,
+    "scan": 50,
+    "odom": 50,
+    "control": 0,
+    "duration_s": 7.998410779,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 50,
+      "/replay/odom": 50,
+      "/scan": 50,
+      "/replay/scan_info": 50,
+      "/replay/plan": 50
+    }
+  },
+  {
+    "bag": "rosbags/20261111_212313_observe_e3nyo1_5",
+    "source": "tools/s_bend/records/runs/20261111_212313_observe_e3nyo1_5.jsonl",
+    "source_sha256": "9ffc8da3a7cf2a94284e44540b9bd2ce80354476ef1866420aaa8fa25fa228fe",
+    "mode": "observe",
+    "messages": 282,
+    "scan": 56,
+    "odom": 56,
+    "control": 0,
+    "duration_s": 7.998244853,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 56,
+      "/replay/odom": 56,
+      "/scan": 56,
+      "/replay/scan_info": 56,
+      "/replay/plan": 56
+    }
+  },
+  {
+    "bag": "rosbags/20261111_214508_observe_sd1tbxd1",
+    "source": "tools/s_bend/records/runs/20261111_214508_observe_sd1tbxd1.jsonl",
+    "source_sha256": "3ca644d4232bc3c1ade5bf0c86a5c83c5031c1e1c9bd732faf630718c90c132a",
+    "mode": "observe",
+    "messages": 336,
+    "scan": 78,
+    "odom": 50,
+    "control": 0,
+    "duration_s": 8.015196397,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 78,
+      "/replay/scan_info": 78,
+      "/replay/plan": 78,
+      "/tf": 50,
+      "/replay/odom": 50
+    }
+  },
+  {
+    "bag": "rosbags/20261111_214835_observe_h019yypa",
+    "source": "tools/s_bend/records/runs/20261111_214835_observe_h019yypa.jsonl",
+    "source_sha256": "9eecf284cb86365436209e6f77842b851591e30c66e28a0a8551f2e124246dc4",
+    "mode": "observe",
+    "messages": 337,
+    "scan": 67,
+    "odom": 67,
+    "control": 0,
+    "duration_s": 8.023332859,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 67,
+      "/replay/odom": 67,
+      "/scan": 67,
+      "/replay/scan_info": 67,
+      "/replay/plan": 67
+    }
+  },
+  {
+    "bag": "rosbags/20261111_220604_observe_32b11ref",
+    "source": "tools/s_bend/records/runs/20261111_220604_observe_32b11ref.jsonl",
+    "source_sha256": "d65649452920dc48042c03402b8283da1ba2eea30d58a338b820f634ddc14319",
+    "mode": "observe",
+    "messages": 341,
+    "scan": 78,
+    "odom": 53,
+    "control": 0,
+    "duration_s": 8.003858343,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 78,
+      "/replay/scan_info": 78,
+      "/replay/plan": 77,
+      "/tf": 53,
+      "/replay/odom": 53
+    }
+  },
+  {
+    "bag": "rosbags/20261111_221010_observe_5z69eo5b",
+    "source": "tools/s_bend/records/runs/20261111_221010_observe_5z69eo5b.jsonl",
+    "source_sha256": "e4ebb8c6f0692e28e289b4feef5278800e905aa5d24512c2adbf65b395fad755",
+    "mode": "observe",
+    "messages": 292,
+    "scan": 58,
+    "odom": 58,
+    "control": 0,
+    "duration_s": 8.038631164,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 58,
+      "/replay/odom": 58,
+      "/scan": 58,
+      "/replay/scan_info": 58,
+      "/replay/plan": 58
+    }
+  },
+  {
+    "bag": "rosbags/20261111_221343_drive_tnitgv0b",
+    "source": "tools/s_bend/records/runs/20261111_221343_drive_tnitgv0b.jsonl",
+    "source_sha256": "43f972aca44dbb2903c350b6419dfe89c60155b11a73647e20741619d9a00e0c",
+    "mode": "drive",
+    "messages": 275,
+    "scan": 36,
+    "odom": 11,
+    "control": 84,
+    "duration_s": 4.202392211,
+    "topics": {
+      "/replay/events": 86,
+      "/replay/control_pwm": 84,
+      "/scan": 36,
+      "/replay/scan_info": 36,
+      "/tf": 11,
+      "/replay/odom": 11,
+      "/replay/plan": 11
+    }
+  },
+  {
+    "bag": "rosbags/20261111_221504_drive_v0hbmi84",
+    "source": "tools/s_bend/records/runs/20261111_221504_drive_v0hbmi84.jsonl",
+    "source_sha256": "1edfa37201095d87bcc60379cf5343edf513d984b0c11302634574671f428f78",
+    "mode": "drive",
+    "messages": 265,
+    "scan": 36,
+    "odom": 12,
+    "control": 77,
+    "duration_s": 3.852218501,
+    "topics": {
+      "/replay/events": 80,
+      "/replay/control_pwm": 77,
+      "/scan": 36,
+      "/replay/scan_info": 36,
+      "/replay/plan": 12,
+      "/tf": 12,
+      "/replay/odom": 12
+    }
+  },
+  {
+    "bag": "rosbags/20261111_221648_observe_nrmb_s_j",
+    "source": "tools/s_bend/records/runs/20261111_221648_observe_nrmb_s_j.jsonl",
+    "source_sha256": "1658d7a53de118a07159e02925a5287edf97c6eea0c3db6b20fb426557ea383d",
+    "mode": "observe",
+    "messages": 404,
+    "scan": 81,
+    "odom": 80,
+    "control": 0,
+    "duration_s": 8.010821115,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 81,
+      "/replay/scan_info": 81,
+      "/tf": 80,
+      "/replay/odom": 80,
+      "/replay/plan": 80
+    }
+  },
+  {
+    "bag": "rosbags/20261111_221817_drive_87h1_7sz",
+    "source": "tools/s_bend/records/runs/20261111_221817_drive_87h1_7sz.jsonl",
+    "source_sha256": "39758d0c32acaf6d7f430da68403be9ffd1f3f1c69e295411d8c37645091566e",
+    "mode": "drive",
+    "messages": 818,
+    "scan": 163,
+    "odom": 163,
+    "control": 0,
+    "duration_s": 18.604159479,
+    "topics": {
+      "/replay/events": 6,
+      "/tf": 163,
+      "/replay/odom": 163,
+      "/scan": 163,
+      "/replay/scan_info": 163,
+      "/replay/plan": 160
+    }
+  },
+  {
+    "bag": "rosbags/20261111_222301_observe_ewptq5_c",
+    "source": "tools/s_bend/records/runs/20261111_222301_observe_ewptq5_c.jsonl",
+    "source_sha256": "c7385474a2f02e4101b48f96936fcd44ca8f7a8302cc6fa1cb556862339bb2fc",
+    "mode": "observe",
+    "messages": 402,
+    "scan": 80,
+    "odom": 80,
+    "control": 0,
+    "duration_s": 8.009114877,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 80,
+      "/replay/odom": 80,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80
+    }
+  },
+  {
+    "bag": "rosbags/20261111_222452_drive_c7obgyp8",
+    "source": "tools/s_bend/records/runs/20261111_222452_drive_c7obgyp8.jsonl",
+    "source_sha256": "5888f32f626348ffc80a13de38dc63f5b7cb4e52c79f10b03fa309f7be8229e0",
+    "mode": "drive",
+    "messages": 2254,
+    "scan": 237,
+    "odom": 237,
+    "control": 534,
+    "duration_s": 26.653211136,
+    "topics": {
+      "/replay/events": 539,
+      "/replay/control_pwm": 534,
+      "/tf": 237,
+      "/replay/odom": 237,
+      "/scan": 237,
+      "/replay/scan_info": 237,
+      "/replay/plan": 233
+    }
+  },
+  {
+    "bag": "rosbags/20261111_222537_drive_6rntvasj",
+    "source": "tools/s_bend/records/runs/20261111_222537_drive_6rntvasj.jsonl",
+    "source_sha256": "d5b03f6bcf90acd1b440699e19852c07f9320b0a12b3e1e163b89ff18f459280",
+    "mode": "drive",
+    "messages": 1223,
+    "scan": 123,
+    "odom": 123,
+    "control": 303,
+    "duration_s": 15.102907426,
+    "topics": {
+      "/replay/events": 309,
+      "/replay/control_pwm": 303,
+      "/tf": 123,
+      "/replay/odom": 123,
+      "/scan": 123,
+      "/replay/scan_info": 123,
+      "/replay/plan": 119
+    }
+  },
+  {
+    "bag": "rosbags/20261111_222817_observe_uq4kjkp4",
+    "source": "tools/s_bend/records/runs/20261111_222817_observe_uq4kjkp4.jsonl",
+    "source_sha256": "3e8bbb0903a7134b680e81aaacc63385384b131e17f9045385d8f9b5e7d27087",
+    "mode": "observe",
+    "messages": 307,
+    "scan": 61,
+    "odom": 61,
+    "control": 0,
+    "duration_s": 8.018050952,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 61,
+      "/replay/odom": 61,
+      "/scan": 61,
+      "/replay/scan_info": 61,
+      "/replay/plan": 61
+    }
+  },
+  {
+    "bag": "rosbags/20261111_223016_drive_m_sg1qc4",
+    "source": "tools/s_bend/records/runs/20261111_223016_drive_m_sg1qc4.jsonl",
+    "source_sha256": "2b1515ac718340778ec7a4359794b9ad5189c3ec9c742376e65a999941211e57",
+    "mode": "drive",
+    "messages": 995,
+    "scan": 98,
+    "odom": 98,
+    "control": 256,
+    "duration_s": 12.752547925,
+    "topics": {
+      "/replay/events": 263,
+      "/replay/control_pwm": 256,
+      "/tf": 98,
+      "/replay/odom": 98,
+      "/scan": 98,
+      "/replay/scan_info": 98,
+      "/replay/plan": 84
+    }
+  },
+  {
+    "bag": "rosbags/20261111_224647_observe_k6vwp0m_",
+    "source": "tools/s_bend/records/runs/20261111_224647_observe_k6vwp0m_.jsonl",
+    "source_sha256": "f75b3a943641c4922f5f119a4c9bc7d372078fb01b3d82020a1dcec88dc1c0d7",
+    "mode": "observe",
+    "messages": 297,
+    "scan": 59,
+    "odom": 59,
+    "control": 0,
+    "duration_s": 7.996360378,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 59,
+      "/replay/odom": 59,
+      "/scan": 59,
+      "/replay/scan_info": 59,
+      "/replay/plan": 59
+    }
+  },
+  {
+    "bag": "rosbags/20261111_224710_drive_k9o606ho",
+    "source": "tools/s_bend/records/runs/20261111_224710_drive_k9o606ho.jsonl",
+    "source_sha256": "a62055ed56fa5e8833377739a9554c84ba085f6d2eac4ea1cca5c37e4d68c7e8",
+    "mode": "drive",
+    "messages": 384,
+    "scan": 49,
+    "odom": 22,
+    "control": 108,
+    "duration_s": 5.666160077,
+    "topics": {
+      "/replay/events": 110,
+      "/replay/control_pwm": 108,
+      "/scan": 49,
+      "/replay/scan_info": 49,
+      "/replay/plan": 24,
+      "/tf": 22,
+      "/replay/odom": 22
+    }
+  },
+  {
+    "bag": "rosbags/20261111_224811_observe_hu810su9",
+    "source": "tools/s_bend/records/runs/20261111_224811_observe_hu810su9.jsonl",
+    "source_sha256": "dbd76eb3898c192effd181de63782297e8fa736078b99a15562c7b354b62d32b",
+    "mode": "observe",
+    "messages": 294,
+    "scan": 62,
+    "odom": 53,
+    "control": 0,
+    "duration_s": 8.019859723,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 62,
+      "/replay/scan_info": 62,
+      "/replay/plan": 62,
+      "/tf": 53,
+      "/replay/odom": 53
+    }
+  },
+  {
+    "bag": "rosbags/20261111_224849_drive_z9xw43ms",
+    "source": "tools/s_bend/records/runs/20261111_224849_drive_z9xw43ms.jsonl",
+    "source_sha256": "e0b56885458291fb5e87e707956801ae15915f319edd87240765a727f5b8d0fd",
+    "mode": "drive",
+    "messages": 319,
+    "scan": 23,
+    "odom": 23,
+    "control": 101,
+    "duration_s": 5.060759513,
+    "topics": {
+      "/replay/events": 103,
+      "/replay/control_pwm": 101,
+      "/tf": 23,
+      "/replay/odom": 23,
+      "/scan": 23,
+      "/replay/scan_info": 23,
+      "/replay/plan": 23
+    }
+  },
+  {
+    "bag": "rosbags/20261111_224956_observe_t90ryq7a",
+    "source": "tools/s_bend/records/runs/20261111_224956_observe_t90ryq7a.jsonl",
+    "source_sha256": "80f3717ddd7167af2b46868bd4106c20ac7994e95167e465ef5f2a2bc69e961c",
+    "mode": "observe",
+    "messages": 308,
+    "scan": 66,
+    "odom": 54,
+    "control": 0,
+    "duration_s": 8.019255452,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 66,
+      "/replay/scan_info": 66,
+      "/replay/plan": 66,
+      "/tf": 54,
+      "/replay/odom": 54
+    }
+  },
+  {
+    "bag": "rosbags/20261111_225012_drive_8uxa139i",
+    "source": "tools/s_bend/records/runs/20261111_225012_drive_8uxa139i.jsonl",
+    "source_sha256": "64d73b59eaae7615700d36e415f19eb4590926b1eed01345901234d8a6f4c272",
+    "mode": "drive",
+    "messages": 1080,
+    "scan": 121,
+    "odom": 108,
+    "control": 256,
+    "duration_s": 13.140496146,
+    "topics": {
+      "/replay/events": 258,
+      "/replay/control_pwm": 256,
+      "/scan": 121,
+      "/replay/scan_info": 121,
+      "/tf": 108,
+      "/replay/odom": 108,
+      "/replay/plan": 108
+    }
+  },
+  {
+    "bag": "rosbags/20261111_225532_observe_0kmua3ua",
+    "source": "tools/s_bend/records/runs/20261111_225532_observe_0kmua3ua.jsonl",
+    "source_sha256": "55fbeffabb359691193b122c029cebf0f20ad5501da02a72af63a5124f8fc982",
+    "mode": "observe",
+    "messages": 303,
+    "scan": 65,
+    "odom": 53,
+    "control": 0,
+    "duration_s": 8.014823818,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 65,
+      "/replay/scan_info": 65,
+      "/replay/plan": 65,
+      "/tf": 53,
+      "/replay/odom": 53
+    }
+  },
+  {
+    "bag": "rosbags/20261111_225741_observe_luto4urb",
+    "source": "tools/s_bend/records/runs/20261111_225741_observe_luto4urb.jsonl",
+    "source_sha256": "62a975d96246db43b5658af106ce947366e4d07f05747e6c021a5c34f77c9743",
+    "mode": "observe",
+    "messages": 292,
+    "scan": 58,
+    "odom": 58,
+    "control": 0,
+    "duration_s": 8.024833236,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 58,
+      "/replay/odom": 58,
+      "/scan": 58,
+      "/replay/scan_info": 58,
+      "/replay/plan": 58
+    }
+  },
+  {
+    "bag": "rosbags/20261111_225801_drive_k3xnztyv",
+    "source": "tools/s_bend/records/runs/20261111_225801_drive_k3xnztyv.jsonl",
+    "source_sha256": "d0347f500a3652f0ba492d6b5ce425feadf484985a88c3a0f0e884e9e31f5d13",
+    "mode": "drive",
+    "messages": 480,
+    "scan": 60,
+    "odom": 31,
+    "control": 132,
+    "duration_s": 6.60306655,
+    "topics": {
+      "/replay/events": 134,
+      "/replay/control_pwm": 132,
+      "/scan": 60,
+      "/replay/scan_info": 60,
+      "/replay/plan": 32,
+      "/tf": 31,
+      "/replay/odom": 31
+    }
+  },
+  {
+    "bag": "rosbags/20261111_230001_observe_upeu5wpw",
+    "source": "tools/s_bend/records/runs/20261111_230001_observe_upeu5wpw.jsonl",
+    "source_sha256": "dfc4b762e7a0004add60944aeb2a3c638672fa95cf4dca839c6678a7f9ef5092",
+    "mode": "observe",
+    "messages": 400,
+    "scan": 80,
+    "odom": 79,
+    "control": 0,
+    "duration_s": 7.998196689,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 79,
+      "/replay/odom": 79
+    }
+  },
+  {
+    "bag": "rosbags/20261111_230011_drive_b08rwihe",
+    "source": "tools/s_bend/records/runs/20261111_230011_drive_b08rwihe.jsonl",
+    "source_sha256": "d134c0b3ef3765ef4b200fbd6300922352d25e5f359d603b4ae82a82e3efd279",
+    "mode": "drive",
+    "messages": 383,
+    "scan": 38,
+    "odom": 28,
+    "control": 110,
+    "duration_s": 5.505965782,
+    "topics": {
+      "/replay/events": 112,
+      "/replay/control_pwm": 110,
+      "/scan": 38,
+      "/replay/scan_info": 38,
+      "/replay/plan": 29,
+      "/tf": 28,
+      "/replay/odom": 28
+    }
+  },
+  {
+    "bag": "rosbags/20261111_230035_observe_6k2nyg4n",
+    "source": "tools/s_bend/records/runs/20261111_230035_observe_6k2nyg4n.jsonl",
+    "source_sha256": "234993d17a76601933ed96042073f6736f5b877e758a681ff12fa394f26b811c",
+    "mode": "observe",
+    "messages": 308,
+    "scan": 66,
+    "odom": 54,
+    "control": 0,
+    "duration_s": 8.002187144,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 66,
+      "/replay/scan_info": 66,
+      "/replay/plan": 66,
+      "/tf": 54,
+      "/replay/odom": 54
+    }
+  },
+  {
+    "bag": "rosbags/20261111_230234_observe_5aeucpob",
+    "source": "tools/s_bend/records/runs/20261111_230234_observe_5aeucpob.jsonl",
+    "source_sha256": "fd6407875e88681d53f9b831657fd69a067af6ab7af22860ac5a7447475f13a5",
+    "mode": "observe",
+    "messages": 257,
+    "scan": 51,
+    "odom": 51,
+    "control": 0,
+    "duration_s": 8.018152757,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 51,
+      "/replay/odom": 51,
+      "/scan": 51,
+      "/replay/scan_info": 51,
+      "/replay/plan": 51
+    }
+  },
+  {
+    "bag": "rosbags/20261111_230244_drive_p1_h0r3c",
+    "source": "tools/s_bend/records/runs/20261111_230244_drive_p1_h0r3c.jsonl",
+    "source_sha256": "5d3033d22c31279973db28cb835b79c9b9e601b6b957c99d79ead2eee01c94c2",
+    "mode": "drive",
+    "messages": 5241,
+    "scan": 575,
+    "odom": 574,
+    "control": 1183,
+    "duration_s": 59.254152268,
+    "topics": {
+      "/replay/events": 1185,
+      "/replay/control_pwm": 1183,
+      "/tf": 574,
+      "/replay/odom": 574,
+      "/scan": 575,
+      "/replay/scan_info": 575,
+      "/replay/plan": 575
+    }
+  },
+  {
+    "bag": "rosbags/20261111_231000_observe_w47uxef_",
+    "source": "tools/s_bend/records/runs/20261111_231000_observe_w47uxef_.jsonl",
+    "source_sha256": "384318a69b002eb6e84a414ed3bac45775d4839498fd8075fbcdb473cfc2d617",
+    "mode": "observe",
+    "messages": 344,
+    "scan": 72,
+    "odom": 63,
+    "control": 0,
+    "duration_s": 7.998008348,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 72,
+      "/replay/scan_info": 72,
+      "/replay/plan": 72,
+      "/tf": 63,
+      "/replay/odom": 63
+    }
+  },
+  {
+    "bag": "rosbags/20261111_231159_observe_hls4j8j7",
+    "source": "tools/s_bend/records/runs/20261111_231159_observe_hls4j8j7.jsonl",
+    "source_sha256": "7c85a950882de126a644d3f33d09c315be044d13bb69a5df69b66bbb7e2f5f91",
+    "mode": "observe",
+    "messages": 353,
+    "scan": 81,
+    "odom": 54,
+    "control": 0,
+    "duration_s": 8.025596434,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 81,
+      "/replay/scan_info": 81,
+      "/replay/plan": 81,
+      "/tf": 54,
+      "/replay/odom": 54
+    }
+  },
+  {
+    "bag": "rosbags/20261111_231210_drive_vwzktjwm",
+    "source": "tools/s_bend/records/runs/20261111_231210_drive_vwzktjwm.jsonl",
+    "source_sha256": "0a7370fa192324202108ad7b3fce7d2c8d90816f11df0d1da97100e45ac49837",
+    "mode": "drive",
+    "messages": 388,
+    "scan": 48,
+    "odom": 26,
+    "control": 106,
+    "duration_s": 5.318361475,
+    "topics": {
+      "/replay/events": 108,
+      "/replay/control_pwm": 106,
+      "/scan": 48,
+      "/replay/scan_info": 48,
+      "/tf": 26,
+      "/replay/odom": 26,
+      "/replay/plan": 26
+    }
+  },
+  {
+    "bag": "rosbags/20261111_231252_observe_8zpkn3mg",
+    "source": "tools/s_bend/records/runs/20261111_231252_observe_8zpkn3mg.jsonl",
+    "source_sha256": "019f3dd619c1264ff802a28a75829ee509bed5d266d29777086105933ee77f99",
+    "mode": "observe",
+    "messages": 343,
+    "scan": 78,
+    "odom": 54,
+    "control": 0,
+    "duration_s": 7.998212188,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 78,
+      "/replay/scan_info": 78,
+      "/replay/plan": 77,
+      "/tf": 54,
+      "/replay/odom": 54
+    }
+  },
+  {
+    "bag": "rosbags/20261111_231328_observe_h395nxgp",
+    "source": "tools/s_bend/records/runs/20261111_231328_observe_h395nxgp.jsonl",
+    "source_sha256": "2bbeb07d0d6a7a1e26637af506c9acde7c8f55bc3c2ac51bcf666ae9c37fdba3",
+    "mode": "observe",
+    "messages": 374,
+    "scan": 78,
+    "odom": 69,
+    "control": 0,
+    "duration_s": 7.998956054,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 78,
+      "/replay/scan_info": 78,
+      "/replay/plan": 78,
+      "/tf": 69,
+      "/replay/odom": 69
+    }
+  },
+  {
+    "bag": "rosbags/20261111_231339_drive_xyx1ckca",
+    "source": "tools/s_bend/records/runs/20261111_231339_drive_xyx1ckca.jsonl",
+    "source_sha256": "fc1e633df54c85128e98346e20fc5e1d34d0c1a5ea019cecc7ffe77642cc68ba",
+    "mode": "drive",
+    "messages": 316,
+    "scan": 34,
+    "odom": 33,
+    "control": 73,
+    "duration_s": 3.654103143,
+    "topics": {
+      "/replay/events": 75,
+      "/replay/control_pwm": 73,
+      "/scan": 34,
+      "/replay/scan_info": 34,
+      "/replay/plan": 34,
+      "/tf": 33,
+      "/replay/odom": 33
+    }
+  },
+  {
+    "bag": "rosbags/20261111_231440_observe_nj7ialib",
+    "source": "tools/s_bend/records/runs/20261111_231440_observe_nj7ialib.jsonl",
+    "source_sha256": "c09b5c76d4b21ef78bb1272a63654075ad5ef99a6efb116b0bbc2f3f107eeba1",
+    "mode": "observe",
+    "messages": 257,
+    "scan": 51,
+    "odom": 51,
+    "control": 0,
+    "duration_s": 7.998662053,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 51,
+      "/replay/odom": 51,
+      "/scan": 51,
+      "/replay/scan_info": 51,
+      "/replay/plan": 51
+    }
+  },
+  {
+    "bag": "rosbags/20261111_231756_observe_i_llsqlv",
+    "source": "tools/s_bend/records/runs/20261111_231756_observe_i_llsqlv.jsonl",
+    "source_sha256": "62302caf37cc4aac0e9a513fc5b619fb8eb9f999e3b409f94c3b5950d97ab274",
+    "mode": "observe",
+    "messages": 294,
+    "scan": 62,
+    "odom": 53,
+    "control": 0,
+    "duration_s": 7.998440631,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 62,
+      "/replay/scan_info": 62,
+      "/replay/plan": 62,
+      "/tf": 53,
+      "/replay/odom": 53
+    }
+  },
+  {
+    "bag": "rosbags/20261111_231847_observe_m1jynxxf",
+    "source": "tools/s_bend/records/runs/20261111_231847_observe_m1jynxxf.jsonl",
+    "source_sha256": "c348ea74c930495aa7e577134dd236e638a8ae762ad827c0f5a906b51fd27bb5",
+    "mode": "observe",
+    "messages": 378,
+    "scan": 80,
+    "odom": 68,
+    "control": 0,
+    "duration_s": 7.998323535,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 68,
+      "/replay/odom": 68
+    }
+  },
+  {
+    "bag": "rosbags/20261111_231930_observe_h5143e0w",
+    "source": "tools/s_bend/records/runs/20261111_231930_observe_h5143e0w.jsonl",
+    "source_sha256": "055ad934e749426b5506d5d7df47cefdf05b7d7210b73d0fcacf401469b31bde",
+    "mode": "observe",
+    "messages": 348,
+    "scan": 74,
+    "odom": 62,
+    "control": 0,
+    "duration_s": 8.006788912,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 74,
+      "/replay/scan_info": 74,
+      "/replay/plan": 74,
+      "/tf": 62,
+      "/replay/odom": 62
+    }
+  },
+  {
+    "bag": "rosbags/20261111_231955_drive_oebxfah1",
+    "source": "tools/s_bend/records/runs/20261111_231955_drive_oebxfah1.jsonl",
+    "source_sha256": "ae874b0a4250bd74586c99fa7f1c8564fc516a28166191b84e1ac78da0b0a0b6",
+    "mode": "drive",
+    "messages": 501,
+    "scan": 43,
+    "odom": 42,
+    "control": 143,
+    "duration_s": 7.206794874,
+    "topics": {
+      "/replay/events": 145,
+      "/replay/control_pwm": 143,
+      "/tf": 42,
+      "/replay/odom": 42,
+      "/scan": 43,
+      "/replay/scan_info": 43,
+      "/replay/plan": 43
+    }
+  },
+  {
+    "bag": "rosbags/20261111_232113_observe_y_riezk4",
+    "source": "tools/s_bend/records/runs/20261111_232113_observe_y_riezk4.jsonl",
+    "source_sha256": "9dfffdd7991c8444364e19053fcd341b31fc305d03d528235b3cc38a2a8d5cc5",
+    "mode": "observe",
+    "messages": 267,
+    "scan": 53,
+    "odom": 53,
+    "control": 0,
+    "duration_s": 8.00036552,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 53,
+      "/replay/odom": 53,
+      "/scan": 53,
+      "/replay/scan_info": 53,
+      "/replay/plan": 53
+    }
+  },
+  {
+    "bag": "rosbags/20261111_232241_observe_e9g033h_",
+    "source": "tools/s_bend/records/runs/20261111_232241_observe_e9g033h_.jsonl",
+    "source_sha256": "727922b8843305eb02b2729845f08020c17d91d7f88995c46ee0b65c0e3a382d",
+    "mode": "observe",
+    "messages": 282,
+    "scan": 56,
+    "odom": 56,
+    "control": 0,
+    "duration_s": 8.021002562,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 56,
+      "/replay/odom": 56,
+      "/scan": 56,
+      "/replay/scan_info": 56,
+      "/replay/plan": 56
+    }
+  },
+  {
+    "bag": "rosbags/20261111_232331_observe_8uhtyuco",
+    "source": "tools/s_bend/records/runs/20261111_232331_observe_8uhtyuco.jsonl",
+    "source_sha256": "4a16357c466a322b72200d02df34ee6d5b96efc3cc6f2c96ab82059a12c4515b",
+    "mode": "observe",
+    "messages": 341,
+    "scan": 79,
+    "odom": 51,
+    "control": 0,
+    "duration_s": 8.024407577,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 79,
+      "/replay/scan_info": 79,
+      "/replay/plan": 79,
+      "/tf": 51,
+      "/replay/odom": 51
+    }
+  },
+  {
+    "bag": "rosbags/20261111_232341_drive_xn2lyxnh",
+    "source": "tools/s_bend/records/runs/20261111_232341_drive_xn2lyxnh.jsonl",
+    "source_sha256": "490eac9adb97626e0336eeee7ff18d1f9177863520b512a273d7ec05dd008d6a",
+    "mode": "drive",
+    "messages": 3059,
+    "scan": 336,
+    "odom": 323,
+    "control": 707,
+    "duration_s": 35.508839232,
+    "topics": {
+      "/replay/events": 709,
+      "/replay/control_pwm": 707,
+      "/scan": 336,
+      "/replay/scan_info": 336,
+      "/replay/plan": 325,
+      "/tf": 323,
+      "/replay/odom": 323
+    }
+  },
+  {
+    "bag": "rosbags/20261111_232607_observe_5bcw5zp0",
+    "source": "tools/s_bend/records/runs/20261111_232607_observe_5bcw5zp0.jsonl",
+    "source_sha256": "bec28767b4b87d4f45a267c80433c8a4ef52bebf3c4d6ebdb4de489518ab8f13",
+    "mode": "observe",
+    "messages": 400,
+    "scan": 80,
+    "odom": 79,
+    "control": 0,
+    "duration_s": 7.999146895,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 79,
+      "/replay/odom": 79
+    }
+  },
+  {
+    "bag": "rosbags/20261111_232640_observe__gp7i594",
+    "source": "tools/s_bend/records/runs/20261111_232640_observe__gp7i594.jsonl",
+    "source_sha256": "8f8ad8116abd8ca3e1b156f03b64178638d36fd8324e65d8574dfd2d7b4060c0",
+    "mode": "observe",
+    "messages": 262,
+    "scan": 52,
+    "odom": 52,
+    "control": 0,
+    "duration_s": 8.025122987,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 52,
+      "/replay/odom": 52,
+      "/scan": 52,
+      "/replay/scan_info": 52,
+      "/replay/plan": 52
+    }
+  },
+  {
+    "bag": "rosbags/20261111_232711_observe_jfhuipzl",
+    "source": "tools/s_bend/records/runs/20261111_232711_observe_jfhuipzl.jsonl",
+    "source_sha256": "d7ad6c835e190f64b59b030ab32def8e5e538e5e3d0440395c00900fca50a064",
+    "mode": "observe",
+    "messages": 308,
+    "scan": 66,
+    "odom": 54,
+    "control": 0,
+    "duration_s": 8.018010746,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 66,
+      "/replay/scan_info": 66,
+      "/replay/plan": 66,
+      "/tf": 54,
+      "/replay/odom": 54
+    }
+  },
+  {
+    "bag": "rosbags/20261111_232722_drive_kfnb_hqg",
+    "source": "tools/s_bend/records/runs/20261111_232722_drive_kfnb_hqg.jsonl",
+    "source_sha256": "a2a892682b327e4b28a76d8ca6d412ca069efcda2c1707b125528acfc5527baf",
+    "mode": "drive",
+    "messages": 191,
+    "scan": 23,
+    "odom": 11,
+    "control": 55,
+    "duration_s": 3.040465145,
+    "topics": {
+      "/replay/events": 57,
+      "/replay/control_pwm": 55,
+      "/scan": 23,
+      "/replay/scan_info": 23,
+      "/tf": 11,
+      "/replay/odom": 11,
+      "/replay/plan": 11
+    }
+  },
+  {
+    "bag": "rosbags/20261111_232754_drive_8rtgpcpp",
+    "source": "tools/s_bend/records/runs/20261111_232754_drive_8rtgpcpp.jsonl",
+    "source_sha256": "8254e527cbf0c42814dee6cc254c1e9ae7cfb024f3f296b5069949b7abd9c2d5",
+    "mode": "drive",
+    "messages": 3175,
+    "scan": 353,
+    "odom": 349,
+    "control": 708,
+    "duration_s": 35.561375355,
+    "topics": {
+      "/replay/events": 710,
+      "/replay/control_pwm": 708,
+      "/scan": 353,
+      "/replay/scan_info": 353,
+      "/replay/plan": 353,
+      "/tf": 349,
+      "/replay/odom": 349
+    }
+  },
+  {
+    "bag": "rosbags/20261111_233020_observe_srwaodti",
+    "source": "tools/s_bend/records/runs/20261111_233020_observe_srwaodti.jsonl",
+    "source_sha256": "e4bdbc0a3a693fa4f0c4a9facba4d29a7fd703935149d17c87268d980606b3cc",
+    "mode": "observe",
+    "messages": 366,
+    "scan": 80,
+    "odom": 62,
+    "control": 0,
+    "duration_s": 8.019449147,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 62,
+      "/replay/odom": 62
+    }
+  },
+  {
+    "bag": "rosbags/20261111_233103_observe_h81bmrlv",
+    "source": "tools/s_bend/records/runs/20261111_233103_observe_h81bmrlv.jsonl",
+    "source_sha256": "9e1f1bdc3cebeb8c0cbd6af52eaa365020ab7bd26cae313fdfe824d71dcc776e",
+    "mode": "observe",
+    "messages": 368,
+    "scan": 80,
+    "odom": 63,
+    "control": 0,
+    "duration_s": 7.999030278,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 63,
+      "/replay/odom": 63
+    }
+  },
+  {
+    "bag": "rosbags/20261111_233114_drive_c3gmi2rp",
+    "source": "tools/s_bend/records/runs/20261111_233114_drive_c3gmi2rp.jsonl",
+    "source_sha256": "07cf4bb6ad8c24fc405e38da22ef195c493ae9385f6e4bdcfb95722a2bfb072c",
+    "mode": "drive",
+    "messages": 830,
+    "scan": 82,
+    "odom": 82,
+    "control": 209,
+    "duration_s": 10.769338303,
+    "topics": {
+      "/replay/events": 211,
+      "/replay/control_pwm": 209,
+      "/tf": 82,
+      "/replay/odom": 82,
+      "/scan": 82,
+      "/replay/scan_info": 82,
+      "/replay/plan": 82
+    }
+  },
+  {
+    "bag": "rosbags/20261111_233153_observe_xaieqngx",
+    "source": "tools/s_bend/records/runs/20261111_233153_observe_xaieqngx.jsonl",
+    "source_sha256": "6c14c4124e1320ac3ef6c6157ab6d4c563490515035661e0c6e33063a23e4784",
+    "mode": "observe",
+    "messages": 293,
+    "scan": 63,
+    "odom": 51,
+    "control": 0,
+    "duration_s": 7.998118049,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 63,
+      "/replay/scan_info": 63,
+      "/replay/plan": 63,
+      "/tf": 51,
+      "/replay/odom": 51
+    }
+  },
+  {
+    "bag": "rosbags/20261111_233455_observe_lzyp7dpf",
+    "source": "tools/s_bend/records/runs/20261111_233455_observe_lzyp7dpf.jsonl",
+    "source_sha256": "43bba68f611e0096e9b809acdc1cd1fd8099483fabfc72196f40f9b492000112",
+    "mode": "observe",
+    "messages": 262,
+    "scan": 52,
+    "odom": 52,
+    "control": 0,
+    "duration_s": 7.998279913,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 52,
+      "/replay/odom": 52,
+      "/scan": 52,
+      "/replay/scan_info": 52,
+      "/replay/plan": 52
+    }
+  },
+  {
+    "bag": "rosbags/20261111_233604_observe_d79f9m7k",
+    "source": "tools/s_bend/records/runs/20261111_233604_observe_d79f9m7k.jsonl",
+    "source_sha256": "c246ff7b47d8ae1cc2cadb887aea9cfde76384b120335c443a7732fbb432b3dd",
+    "mode": "observe",
+    "messages": 368,
+    "scan": 78,
+    "odom": 66,
+    "control": 0,
+    "duration_s": 7.996476703,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 78,
+      "/replay/scan_info": 78,
+      "/replay/plan": 78,
+      "/tf": 66,
+      "/replay/odom": 66
+    }
+  },
+  {
+    "bag": "rosbags/20261111_233638_observe_m56qtb8m",
+    "source": "tools/s_bend/records/runs/20261111_233638_observe_m56qtb8m.jsonl",
+    "source_sha256": "ab430a812bff93e6f6108082650ae2a35e810b972e524e4982d24f94939488ef",
+    "mode": "observe",
+    "messages": 292,
+    "scan": 58,
+    "odom": 58,
+    "control": 0,
+    "duration_s": 8.018104719,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 58,
+      "/replay/odom": 58,
+      "/scan": 58,
+      "/replay/scan_info": 58,
+      "/replay/plan": 58
+    }
+  },
+  {
+    "bag": "rosbags/20261111_233713_observe_kvnwj139",
+    "source": "tools/s_bend/records/runs/20261111_233713_observe_kvnwj139.jsonl",
+    "source_sha256": "993c5bff7660c6bbce3aefd064d8fbce30acc16e4c266c7b8d6e07f5a5de048d",
+    "mode": "observe",
+    "messages": 272,
+    "scan": 54,
+    "odom": 54,
+    "control": 0,
+    "duration_s": 8.0170385,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 54,
+      "/replay/odom": 54,
+      "/scan": 54,
+      "/replay/scan_info": 54,
+      "/replay/plan": 54
+    }
+  },
+  {
+    "bag": "rosbags/20261111_233724_drive_ksbk35zx",
+    "source": "tools/s_bend/records/runs/20261111_233724_drive_ksbk35zx.jsonl",
+    "source_sha256": "64b92567408d9eee55928ca1f762ad4d24d2f34c31b926ad303799d41b330ee9",
+    "mode": "drive",
+    "messages": 582,
+    "scan": 71,
+    "odom": 47,
+    "control": 148,
+    "duration_s": 7.418382702,
+    "topics": {
+      "/replay/events": 150,
+      "/replay/control_pwm": 148,
+      "/scan": 71,
+      "/replay/scan_info": 71,
+      "/replay/plan": 48,
+      "/tf": 47,
+      "/replay/odom": 47
+    }
+  },
+  {
+    "bag": "rosbags/20261111_233747_drive__gb1ri_z",
+    "source": "tools/s_bend/records/runs/20261111_233747_drive__gb1ri_z.jsonl",
+    "source_sha256": "60e47e6065e9185c4f47a8edcba3513361f5b50a2fee6a1f421db67df337dbc1",
+    "mode": "drive",
+    "messages": 3059,
+    "scan": 339,
+    "odom": 338,
+    "control": 682,
+    "duration_s": 34.153826047,
+    "topics": {
+      "/replay/events": 684,
+      "/replay/control_pwm": 682,
+      "/scan": 339,
+      "/replay/scan_info": 339,
+      "/replay/plan": 339,
+      "/tf": 338,
+      "/replay/odom": 338
+    }
+  },
+  {
+    "bag": "rosbags/20261111_233907_observe_g6046prn",
+    "source": "tools/s_bend/records/runs/20261111_233907_observe_g6046prn.jsonl",
+    "source_sha256": "7d0277f00fc5754277a16865dfa9fb36f1c6f5283c850e5ee4303871aba016c1",
+    "mode": "observe",
+    "messages": 267,
+    "scan": 53,
+    "odom": 53,
+    "control": 0,
+    "duration_s": 7.999226057,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 53,
+      "/replay/odom": 53,
+      "/scan": 53,
+      "/replay/scan_info": 53,
+      "/replay/plan": 53
+    }
+  },
+  {
+    "bag": "rosbags/20261111_233942_observe_1fjttkvu",
+    "source": "tools/s_bend/records/runs/20261111_233942_observe_1fjttkvu.jsonl",
+    "source_sha256": "a6849e9e5d4743e091addf4e7dff1fa950d2e9ac344ffbeac25159f14b64b672",
+    "mode": "observe",
+    "messages": 400,
+    "scan": 80,
+    "odom": 79,
+    "control": 0,
+    "duration_s": 7.999106086,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 79,
+      "/replay/odom": 79
+    }
+  },
+  {
+    "bag": "rosbags/20261111_234213_observe_g3bffcpr",
+    "source": "tools/s_bend/records/runs/20261111_234213_observe_g3bffcpr.jsonl",
+    "source_sha256": "7f3d4ef8a19916b3979dbac239b64c400fc3bfeecd3fa87252eb8cd3d56c3b0a",
+    "mode": "observe",
+    "messages": 351,
+    "scan": 75,
+    "odom": 62,
+    "control": 0,
+    "duration_s": 8.017057623,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 75,
+      "/replay/scan_info": 75,
+      "/replay/plan": 75,
+      "/tf": 62,
+      "/replay/odom": 62
+    }
+  },
+  {
+    "bag": "rosbags/20261111_234223_drive_szuxteta",
+    "source": "tools/s_bend/records/runs/20261111_234223_drive_szuxteta.jsonl",
+    "source_sha256": "3387722ad60d3bcdef833b8226e710648c129d362ae2185e18e7e7eb8184cb1f",
+    "mode": "drive",
+    "messages": 3393,
+    "scan": 373,
+    "odom": 359,
+    "control": 777,
+    "duration_s": 39.546173275,
+    "topics": {
+      "/replay/events": 779,
+      "/replay/control_pwm": 777,
+      "/tf": 359,
+      "/replay/odom": 359,
+      "/scan": 373,
+      "/replay/scan_info": 373,
+      "/replay/plan": 373
+    }
+  },
+  {
+    "bag": "rosbags/20261111_234335_observe_xcmnvbz_",
+    "source": "tools/s_bend/records/runs/20261111_234335_observe_xcmnvbz_.jsonl",
+    "source_sha256": "438f03624e5535b9726bbb98b613eef1a90fcef7304cf457eb0c9b2fb3bdbb15",
+    "mode": "observe",
+    "messages": 290,
+    "scan": 58,
+    "odom": 57,
+    "control": 0,
+    "duration_s": 8.057430332,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 57,
+      "/replay/odom": 57,
+      "/scan": 58,
+      "/replay/scan_info": 58,
+      "/replay/plan": 58
+    }
+  },
+  {
+    "bag": "rosbags/20261111_234541_observe_g58vl7w9",
+    "source": "tools/s_bend/records/runs/20261111_234541_observe_g58vl7w9.jsonl",
+    "source_sha256": "2a1c33b6b67d1649b79211d18cb0981cf03c28e0b27745061894e327de6ac24b",
+    "mode": "observe",
+    "messages": 298,
+    "scan": 64,
+    "odom": 52,
+    "control": 0,
+    "duration_s": 7.998562622,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 64,
+      "/replay/scan_info": 64,
+      "/replay/plan": 64,
+      "/tf": 52,
+      "/replay/odom": 52
+    }
+  },
+  {
+    "bag": "rosbags/20261111_234552_drive_az41ow0i",
+    "source": "tools/s_bend/records/runs/20261111_234552_drive_az41ow0i.jsonl",
+    "source_sha256": "78f6390a55d712002ea3d9d175e605164146e096235b232618c3c97b188c01ca",
+    "mode": "drive",
+    "messages": 199,
+    "scan": 23,
+    "odom": 11,
+    "control": 59,
+    "duration_s": 3.229781503,
+    "topics": {
+      "/replay/events": 61,
+      "/replay/control_pwm": 59,
+      "/scan": 23,
+      "/replay/scan_info": 23,
+      "/tf": 11,
+      "/replay/odom": 11,
+      "/replay/plan": 11
+    }
+  },
+  {
+    "bag": "rosbags/20261111_234608_drive_mweautrf",
+    "source": "tools/s_bend/records/runs/20261111_234608_drive_mweautrf.jsonl",
+    "source_sha256": "5ea90e99f785c4ada3b262dbe7216c06f0104954d01063db18a62a3a0d1e5a24",
+    "mode": "drive",
+    "messages": 1409,
+    "scan": 145,
+    "odom": 144,
+    "control": 342,
+    "duration_s": 17.143850772,
+    "topics": {
+      "/replay/events": 344,
+      "/replay/control_pwm": 342,
+      "/tf": 144,
+      "/replay/odom": 144,
+      "/scan": 145,
+      "/replay/scan_info": 145,
+      "/replay/plan": 145
+    }
+  },
+  {
+    "bag": "rosbags/20261111_234658_observe_kj0zmxxm",
+    "source": "tools/s_bend/records/runs/20261111_234658_observe_kj0zmxxm.jsonl",
+    "source_sha256": "3a942e2fb4a0436c430b6df167b3c21fccc7a0604e519ed4cf5a2171f2628564",
+    "mode": "observe",
+    "messages": 267,
+    "scan": 53,
+    "odom": 53,
+    "control": 0,
+    "duration_s": 8.060239055,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 53,
+      "/replay/odom": 53,
+      "/scan": 53,
+      "/replay/scan_info": 53,
+      "/replay/plan": 53
+    }
+  },
+  {
+    "bag": "rosbags/20261111_234718_drive_04kg7p7f",
+    "source": "tools/s_bend/records/runs/20261111_234718_drive_04kg7p7f.jsonl",
+    "source_sha256": "1781783571746f661d029bb41e899246f8f8ac0e5dc41e92d68754102b2bc4ed",
+    "mode": "drive",
+    "messages": 3122,
+    "scan": 346,
+    "odom": 334,
+    "control": 713,
+    "duration_s": 35.753852849,
+    "topics": {
+      "/replay/events": 715,
+      "/replay/control_pwm": 713,
+      "/scan": 346,
+      "/replay/scan_info": 346,
+      "/replay/plan": 334,
+      "/tf": 334,
+      "/replay/odom": 334
+    }
+  },
+  {
+    "bag": "rosbags/20261111_234934_observe__o76939p",
+    "source": "tools/s_bend/records/runs/20261111_234934_observe__o76939p.jsonl",
+    "source_sha256": "b597f2af3ade88bbd7c5d7953d091096832ecdd25667f52643b4a7390bb3457e",
+    "mode": "observe",
+    "messages": 375,
+    "scan": 78,
+    "odom": 70,
+    "control": 0,
+    "duration_s": 7.997794404,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 78,
+      "/replay/scan_info": 78,
+      "/replay/plan": 77,
+      "/tf": 70,
+      "/replay/odom": 70
+    }
+  },
+  {
+    "bag": "rosbags/20261111_235106_observe_hq8h1n50",
+    "source": "tools/s_bend/records/runs/20261111_235106_observe_hq8h1n50.jsonl",
+    "source_sha256": "932bf967317c82213123de97b49d6f94c4b8666e397ce66a795552f7143a0f48",
+    "mode": "observe",
+    "messages": 308,
+    "scan": 64,
+    "odom": 57,
+    "control": 0,
+    "duration_s": 8.020155077,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 64,
+      "/replay/scan_info": 64,
+      "/replay/plan": 64,
+      "/tf": 57,
+      "/replay/odom": 57
+    }
+  },
+  {
+    "bag": "rosbags/20261111_235117_drive_3ugy60ox",
+    "source": "tools/s_bend/records/runs/20261111_235117_drive_3ugy60ox.jsonl",
+    "source_sha256": "46d3a6933954791a359eecc5a14fcd4d89a88136ad7011ae1fb9ca986cbeb4e6",
+    "mode": "drive",
+    "messages": 3126,
+    "scan": 346,
+    "odom": 345,
+    "control": 698,
+    "duration_s": 34.904447495,
+    "topics": {
+      "/replay/events": 700,
+      "/replay/control_pwm": 698,
+      "/scan": 346,
+      "/replay/scan_info": 346,
+      "/replay/plan": 346,
+      "/tf": 345,
+      "/replay/odom": 345
+    }
+  },
+  {
+    "bag": "rosbags/20261111_235241_observe_hxivceer",
+    "source": "tools/s_bend/records/runs/20261111_235241_observe_hxivceer.jsonl",
+    "source_sha256": "d6f48c792ff7c20e781108af94a63704c87107f628342c615d26940851fd7f98",
+    "mode": "observe",
+    "messages": 292,
+    "scan": 58,
+    "odom": 58,
+    "control": 0,
+    "duration_s": 7.998200043,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 58,
+      "/replay/odom": 58,
+      "/scan": 58,
+      "/replay/scan_info": 58,
+      "/replay/plan": 58
+    }
+  },
+  {
+    "bag": "rosbags/20261111_235501_observe__sdxqy_i",
+    "source": "tools/s_bend/records/runs/20261111_235501_observe__sdxqy_i.jsonl",
+    "source_sha256": "b247a9270f4d1e3d018a617df5fff12ebb2a69228176b6dd00ff1f8ec860985a",
+    "mode": "observe",
+    "messages": 400,
+    "scan": 80,
+    "odom": 79,
+    "control": 0,
+    "duration_s": 8.01434206,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 79,
+      "/replay/odom": 79
+    }
+  },
+  {
+    "bag": "rosbags/20261111_235522_drive_cbl4litz",
+    "source": "tools/s_bend/records/runs/20261111_235522_drive_cbl4litz.jsonl",
+    "source_sha256": "629bfc524a635f15cc4ee69298687ebede2c51e39c9b47076d93174e286b9445",
+    "mode": "drive",
+    "messages": 2638,
+    "scan": 294,
+    "odom": 276,
+    "control": 609,
+    "duration_s": 30.503956342,
+    "topics": {
+      "/replay/events": 611,
+      "/replay/control_pwm": 609,
+      "/scan": 294,
+      "/replay/scan_info": 294,
+      "/replay/plan": 278,
+      "/tf": 276,
+      "/replay/odom": 276
+    }
+  },
+  {
+    "bag": "rosbags/20261111_235706_observe_81hgl03v",
+    "source": "tools/s_bend/records/runs/20261111_235706_observe_81hgl03v.jsonl",
+    "source_sha256": "896fd1278b5df8866583191fea1f132f98abb1c8ba6ae97bb1a01fb4056c453d",
+    "mode": "observe",
+    "messages": 386,
+    "scan": 80,
+    "odom": 72,
+    "control": 0,
+    "duration_s": 7.998805773,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 72,
+      "/replay/odom": 72
+    }
+  },
+  {
+    "bag": "rosbags/20261111_235731_observe_wkg_662r",
+    "source": "tools/s_bend/records/runs/20261111_235731_observe_wkg_662r.jsonl",
+    "source_sha256": "5cc0ec0a9603883518193c66e1ccd99245a209df2d85afff0173b506ff0504ee",
+    "mode": "observe",
+    "messages": 354,
+    "scan": 80,
+    "odom": 56,
+    "control": 0,
+    "duration_s": 7.999640278,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 56,
+      "/replay/odom": 56
+    }
+  },
+  {
+    "bag": "rosbags/20261111_235852_observe_bp2vpm0z",
+    "source": "tools/s_bend/records/runs/20261111_235852_observe_bp2vpm0z.jsonl",
+    "source_sha256": "a5e9be7d41e571417638f61fa2547c6edd2a6d836841f689e63bfaf7d79f72a7",
+    "mode": "observe",
+    "messages": 402,
+    "scan": 80,
+    "odom": 80,
+    "control": 0,
+    "duration_s": 8.023638671,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 80,
+      "/replay/odom": 80,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80
+    }
+  },
+  {
+    "bag": "rosbags/20261111_235903_drive_mfiqoayf",
+    "source": "tools/s_bend/records/runs/20261111_235903_drive_mfiqoayf.jsonl",
+    "source_sha256": "e47944474c2bd342bed507bb2dc57ba676a90371331e5639c7c617a2f6da9cf4",
+    "mode": "drive",
+    "messages": 2692,
+    "scan": 289,
+    "odom": 289,
+    "control": 623,
+    "duration_s": 31.153844664,
+    "topics": {
+      "/replay/events": 625,
+      "/replay/control_pwm": 623,
+      "/tf": 289,
+      "/replay/odom": 289,
+      "/scan": 289,
+      "/replay/scan_info": 289,
+      "/replay/plan": 288
+    }
+  },
+  {
+    "bag": "rosbags/20261112_000024_observe_hggcolu_",
+    "source": "tools/s_bend/records/runs/20261112_000024_observe_hggcolu_.jsonl",
+    "source_sha256": "e80842eaceabfe699c5eb6a5a78168525e1353a98e2a663461f50275671f0c34",
+    "mode": "observe",
+    "messages": 317,
+    "scan": 63,
+    "odom": 63,
+    "control": 0,
+    "duration_s": 7.999376692,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 63,
+      "/replay/odom": 63,
+      "/scan": 63,
+      "/replay/scan_info": 63,
+      "/replay/plan": 63
+    }
+  },
+  {
+    "bag": "rosbags/20261112_000058_observe_053q93mi",
+    "source": "tools/s_bend/records/runs/20261112_000058_observe_053q93mi.jsonl",
+    "source_sha256": "3b8b8a1a6b34ea4d8289c79a8bdd09103b9cbc766708fc4dd5e50244527b847b",
+    "mode": "observe",
+    "messages": 400,
+    "scan": 80,
+    "odom": 79,
+    "control": 0,
+    "duration_s": 8.019454271,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 79,
+      "/replay/odom": 79
+    }
+  },
+  {
+    "bag": "rosbags/20261112_000108_drive_efst4q95",
+    "source": "tools/s_bend/records/runs/20261112_000108_drive_efst4q95.jsonl",
+    "source_sha256": "97fadb9ae659df18de31b4d4a8613c37c4f343ba37ff1139566c87fc86179b68",
+    "mode": "drive",
+    "messages": 2727,
+    "scan": 291,
+    "odom": 291,
+    "control": 635,
+    "duration_s": 31.854938617,
+    "topics": {
+      "/replay/events": 637,
+      "/replay/control_pwm": 635,
+      "/tf": 291,
+      "/replay/odom": 291,
+      "/scan": 291,
+      "/replay/scan_info": 291,
+      "/replay/plan": 291
+    }
+  },
+  {
+    "bag": "rosbags/20261112_000308_observe_mgtej8ea",
+    "source": "tools/s_bend/records/runs/20261112_000308_observe_mgtej8ea.jsonl",
+    "source_sha256": "294dd55ac4aec1b5c9b86cb012a6ce022fd35b4d428e232033731f78d020e01e",
+    "mode": "observe",
+    "messages": 374,
+    "scan": 81,
+    "odom": 65,
+    "control": 0,
+    "duration_s": 8.019848745,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 81,
+      "/replay/scan_info": 81,
+      "/replay/plan": 80,
+      "/tf": 65,
+      "/replay/odom": 65
+    }
+  },
+  {
+    "bag": "rosbags/20261112_000334_drive_4zid6oja",
+    "source": "tools/s_bend/records/runs/20261112_000334_drive_4zid6oja.jsonl",
+    "source_sha256": "33047af8c3b02f09bbfeb0aeaa2ce6c953546b59ab1527814bf51b3ccc2c1ceb",
+    "mode": "drive",
+    "messages": 195,
+    "scan": 24,
+    "odom": 7,
+    "control": 62,
+    "duration_s": 3.404633207,
+    "topics": {
+      "/replay/events": 64,
+      "/replay/control_pwm": 62,
+      "/scan": 24,
+      "/replay/scan_info": 24,
+      "/tf": 7,
+      "/replay/odom": 7,
+      "/replay/plan": 7
+    }
+  },
+  {
+    "bag": "rosbags/20261112_000354_drive_sxnroujf",
+    "source": "tools/s_bend/records/runs/20261112_000354_drive_sxnroujf.jsonl",
+    "source_sha256": "16bd66abb63a8f17a505a93b137e4917a4aa2ac4e7f40d00177e089c98a45424",
+    "mode": "drive",
+    "messages": 2348,
+    "scan": 252,
+    "odom": 251,
+    "control": 545,
+    "duration_s": 27.253978538,
+    "topics": {
+      "/replay/events": 547,
+      "/replay/control_pwm": 545,
+      "/tf": 251,
+      "/replay/odom": 251,
+      "/scan": 252,
+      "/replay/scan_info": 252,
+      "/replay/plan": 250
+    }
+  },
+  {
+    "bag": "rosbags/20261112_000522_observe_2jeao7mu",
+    "source": "tools/s_bend/records/runs/20261112_000522_observe_2jeao7mu.jsonl",
+    "source_sha256": "8fce44ef31ad48867cae589f8f706d00bed7881a05639e96fb516f74b57c8b7c",
+    "mode": "observe",
+    "messages": 352,
+    "scan": 80,
+    "odom": 55,
+    "control": 0,
+    "duration_s": 7.999614404,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 55,
+      "/replay/odom": 55
+    }
+  },
+  {
+    "bag": "rosbags/20261112_000537_drive_64a0fann",
+    "source": "tools/s_bend/records/runs/20261112_000537_drive_64a0fann.jsonl",
+    "source_sha256": "698d8f70fb1cadfb8f7bdf29e9e331a153c18f5a587a692e29dccc164af7679d",
+    "mode": "drive",
+    "messages": 2454,
+    "scan": 276,
+    "odom": 259,
+    "control": 561,
+    "duration_s": 28.0539276,
+    "topics": {
+      "/replay/events": 563,
+      "/replay/control_pwm": 561,
+      "/scan": 276,
+      "/replay/scan_info": 276,
+      "/replay/plan": 260,
+      "/tf": 259,
+      "/replay/odom": 259
+    }
+  },
+  {
+    "bag": "rosbags/20261112_000734_observe_2_s649b9",
+    "source": "tools/s_bend/records/runs/20261112_000734_observe_2_s649b9.jsonl",
+    "source_sha256": "e068ad841c6a08f25ef151a848f191d58a6cdab24713dbace5ef7b2ebc8d4a80",
+    "mode": "observe",
+    "messages": 347,
+    "scan": 77,
+    "odom": 57,
+    "control": 0,
+    "duration_s": 8.002409401,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 77,
+      "/replay/scan_info": 77,
+      "/replay/plan": 77,
+      "/tf": 57,
+      "/replay/odom": 57
+    }
+  },
+  {
+    "bag": "rosbags/20261112_000800_drive_v_x3la8e",
+    "source": "tools/s_bend/records/runs/20261112_000800_drive_v_x3la8e.jsonl",
+    "source_sha256": "eaa92e6a23996a74add2410603a4130ca8bbce79c2f15d20f9dc018ea78f9de3",
+    "mode": "drive",
+    "messages": 407,
+    "scan": 39,
+    "odom": 38,
+    "control": 107,
+    "duration_s": 5.354109687,
+    "topics": {
+      "/replay/events": 109,
+      "/replay/control_pwm": 107,
+      "/scan": 39,
+      "/replay/scan_info": 39,
+      "/tf": 38,
+      "/replay/odom": 38,
+      "/replay/plan": 37
+    }
+  },
+  {
+    "bag": "rosbags/20261112_000827_observe_c2v78cuh",
+    "source": "tools/s_bend/records/runs/20261112_000827_observe_c2v78cuh.jsonl",
+    "source_sha256": "f1a3d0f7695d5ea0e610605a55e7509d64e31bad51a2f7a1a3a05f1c4cfe5619",
+    "mode": "observe",
+    "messages": 322,
+    "scan": 64,
+    "odom": 64,
+    "control": 0,
+    "duration_s": 7.998447777,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 64,
+      "/replay/odom": 64,
+      "/scan": 64,
+      "/replay/scan_info": 64,
+      "/replay/plan": 64
+    }
+  },
+  {
+    "bag": "rosbags/20261112_000955_observe_hplh0vbc",
+    "source": "tools/s_bend/records/runs/20261112_000955_observe_hplh0vbc.jsonl",
+    "source_sha256": "bacc3b3b6dcc50d16bb001486edb5d33ba4dbc985e458b5531bb5e1e58d7292b",
+    "mode": "observe",
+    "messages": 344,
+    "scan": 74,
+    "odom": 60,
+    "control": 0,
+    "duration_s": 8.022268579,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 74,
+      "/replay/scan_info": 74,
+      "/replay/plan": 74,
+      "/tf": 60,
+      "/replay/odom": 60
+    }
+  },
+  {
+    "bag": "rosbags/20261112_001006_drive_1d4j9x9f",
+    "source": "tools/s_bend/records/runs/20261112_001006_drive_1d4j9x9f.jsonl",
+    "source_sha256": "abed1cb3ff8b2c48d8533e63c581fcdb1a3f335ac9c74f2e018b6f89b8946311",
+    "mode": "drive",
+    "messages": 2476,
+    "scan": 264,
+    "odom": 263,
+    "control": 579,
+    "duration_s": 28.954173819,
+    "topics": {
+      "/replay/events": 581,
+      "/replay/control_pwm": 579,
+      "/tf": 263,
+      "/replay/odom": 263,
+      "/scan": 264,
+      "/replay/scan_info": 264,
+      "/replay/plan": 262
+    }
+  },
+  {
+    "bag": "rosbags/20261112_001324_observe_8gpk3dxr",
+    "source": "tools/s_bend/records/runs/20261112_001324_observe_8gpk3dxr.jsonl",
+    "source_sha256": "1482fc2c532b82fc499145fe238263c4328d6c402f276dc2a66846cb6ee1c675",
+    "mode": "observe",
+    "messages": 404,
+    "scan": 81,
+    "odom": 80,
+    "control": 0,
+    "duration_s": 8.003225198,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 81,
+      "/replay/scan_info": 81,
+      "/tf": 80,
+      "/replay/odom": 80,
+      "/replay/plan": 80
+    }
+  },
+  {
+    "bag": "rosbags/20261112_001340_observe_ajfu5qgl",
+    "source": "tools/s_bend/records/runs/20261112_001340_observe_ajfu5qgl.jsonl",
+    "source_sha256": "a00b60a809bf0698379e804da100dea93587c529523cbc2e7ae7805107c70d0e",
+    "mode": "observe",
+    "messages": 321,
+    "scan": 71,
+    "odom": 53,
+    "control": 0,
+    "duration_s": 7.998945305,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 71,
+      "/replay/scan_info": 71,
+      "/replay/plan": 71,
+      "/tf": 53,
+      "/replay/odom": 53
+    }
+  },
+  {
+    "bag": "rosbags/20261112_001350_drive_n6xjfekh",
+    "source": "tools/s_bend/records/runs/20261112_001350_drive_n6xjfekh.jsonl",
+    "source_sha256": "82b9fd7a629bca2d84b4b6f9d307bc67cf5b67a5e9cde965de89ed1b7ec87c26",
+    "mode": "drive",
+    "messages": 2336,
+    "scan": 247,
+    "odom": 245,
+    "control": 552,
+    "duration_s": 27.703955626,
+    "topics": {
+      "/replay/events": 554,
+      "/replay/control_pwm": 552,
+      "/scan": 247,
+      "/replay/scan_info": 247,
+      "/replay/plan": 246,
+      "/tf": 245,
+      "/replay/odom": 245
+    }
+  },
+  {
+    "bag": "rosbags/20261112_001534_observe_1wf9yd9x",
+    "source": "tools/s_bend/records/runs/20261112_001534_observe_1wf9yd9x.jsonl",
+    "source_sha256": "076171d5405218e5e61ebac21474b15170bf43465fa65ddd259fd364d904d6fc",
+    "mode": "observe",
+    "messages": 322,
+    "scan": 72,
+    "odom": 52,
+    "control": 0,
+    "duration_s": 7.999767769,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 72,
+      "/replay/scan_info": 72,
+      "/replay/plan": 72,
+      "/tf": 52,
+      "/replay/odom": 52
+    }
+  },
+  {
+    "bag": "rosbags/20261112_001620_observe_cr9_8jbn",
+    "source": "tools/s_bend/records/runs/20261112_001620_observe_cr9_8jbn.jsonl",
+    "source_sha256": "2fa965c8aa113b669865a713183d1182a28f44301c29a709e5b197b792d46c0d",
+    "mode": "observe",
+    "messages": 370,
+    "scan": 80,
+    "odom": 64,
+    "control": 0,
+    "duration_s": 8.023436894,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 64,
+      "/replay/odom": 64
+    }
+  },
+  {
+    "bag": "rosbags/20261112_001630_drive_emehh0zk",
+    "source": "tools/s_bend/records/runs/20261112_001630_drive_emehh0zk.jsonl",
+    "source_sha256": "e480fb9fcd3f7f06b85530973b2ce759476f12bb868d11f1c7d6a632e94ae142",
+    "mode": "drive",
+    "messages": 470,
+    "scan": 53,
+    "odom": 52,
+    "control": 111,
+    "duration_s": 5.553972882,
+    "topics": {
+      "/replay/events": 113,
+      "/replay/control_pwm": 111,
+      "/scan": 53,
+      "/replay/scan_info": 53,
+      "/tf": 52,
+      "/replay/odom": 52,
+      "/replay/plan": 36
+    }
+  },
+  {
+    "bag": "rosbags/20261112_001646_observe_xib08yth",
+    "source": "tools/s_bend/records/runs/20261112_001646_observe_xib08yth.jsonl",
+    "source_sha256": "87b7399207175d35e627d5e6427950b7ba698b97804776737479112aed84b23c",
+    "mode": "observe",
+    "messages": 386,
+    "scan": 80,
+    "odom": 72,
+    "control": 0,
+    "duration_s": 8.003664272,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 72,
+      "/replay/odom": 72
+    }
+  },
+  {
+    "bag": "rosbags/20261112_001702_observe_69ity6za",
+    "source": "tools/s_bend/records/runs/20261112_001702_observe_69ity6za.jsonl",
+    "source_sha256": "99396f47eeea9bf618c5cbfe894bd7d934b7e96bd4769f2d8f71fdc0d12f8424",
+    "mode": "observe",
+    "messages": 277,
+    "scan": 55,
+    "odom": 55,
+    "control": 0,
+    "duration_s": 8.005990842,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 55,
+      "/replay/odom": 55,
+      "/scan": 55,
+      "/replay/scan_info": 55,
+      "/replay/plan": 55
+    }
+  },
+  {
+    "bag": "rosbags/20261112_001713_drive_uc2k23_d",
+    "source": "tools/s_bend/records/runs/20261112_001713_drive_uc2k23_d.jsonl",
+    "source_sha256": "8bd6c53bafb5e35da1c591cb03f99c1f3d951650451a8f58acc1b0fdb89b9c9e",
+    "mode": "drive",
+    "messages": 1850,
+    "scan": 205,
+    "odom": 205,
+    "control": 417,
+    "duration_s": 20.852747883,
+    "topics": {
+      "/replay/events": 419,
+      "/replay/control_pwm": 417,
+      "/tf": 205,
+      "/replay/odom": 205,
+      "/scan": 205,
+      "/replay/scan_info": 205,
+      "/replay/plan": 194
+    }
+  },
+  {
+    "bag": "rosbags/20261112_002042_observe_mzctm442",
+    "source": "tools/s_bend/records/runs/20261112_002042_observe_mzctm442.jsonl",
+    "source_sha256": "655c06d7ebf5fae53f8e78a47709be4cf245af11e4975c7c0b891cc7efd03383",
+    "mode": "observe",
+    "messages": 388,
+    "scan": 80,
+    "odom": 73,
+    "control": 0,
+    "duration_s": 7.999731105,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 73,
+      "/replay/odom": 73
+    }
+  },
+  {
+    "bag": "rosbags/20261112_002128_observe_pcrdyrx6",
+    "source": "tools/s_bend/records/runs/20261112_002128_observe_pcrdyrx6.jsonl",
+    "source_sha256": "1065eb66a883ba45ce684b647414fac1dadc0be36e6a9355a112f43aef486ce1",
+    "mode": "observe",
+    "messages": 358,
+    "scan": 78,
+    "odom": 61,
+    "control": 0,
+    "duration_s": 7.998330535,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 78,
+      "/replay/scan_info": 78,
+      "/replay/plan": 78,
+      "/tf": 61,
+      "/replay/odom": 61
+    }
+  },
+  {
+    "bag": "rosbags/20261112_002253_observe_vzk0hd1z",
+    "source": "tools/s_bend/records/runs/20261112_002253_observe_vzk0hd1z.jsonl",
+    "source_sha256": "acbfe1dc503842a40d03237dd26dbfa12b1f9aadfa3a238ecaf9aaa91e97dd2d",
+    "mode": "observe",
+    "messages": 384,
+    "scan": 80,
+    "odom": 71,
+    "control": 0,
+    "duration_s": 7.998236103,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 71,
+      "/replay/odom": 71
+    }
+  },
+  {
+    "bag": "rosbags/20261112_002304_drive_bv2oijpz",
+    "source": "tools/s_bend/records/runs/20261112_002304_drive_bv2oijpz.jsonl",
+    "source_sha256": "42c2eda1ab333b66efbc4d903ec3dcc609d79ba813051ad1ba526863da2942be",
+    "mode": "drive",
+    "messages": 435,
+    "scan": 49,
+    "odom": 32,
+    "control": 119,
+    "duration_s": 5.95351662,
+    "topics": {
+      "/replay/events": 121,
+      "/replay/control_pwm": 119,
+      "/scan": 49,
+      "/replay/scan_info": 49,
+      "/replay/plan": 33,
+      "/tf": 32,
+      "/replay/odom": 32
+    }
+  },
+  {
+    "bag": "rosbags/20261112_002326_observe_cu5hqqdv",
+    "source": "tools/s_bend/records/runs/20261112_002326_observe_cu5hqqdv.jsonl",
+    "source_sha256": "8a36bb16a852322416e03b8885d930619a3f7e9a5ffa388353ef7a7650f1f6ed",
+    "mode": "observe",
+    "messages": 368,
+    "scan": 80,
+    "odom": 63,
+    "control": 0,
+    "duration_s": 7.998137423,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 63,
+      "/replay/odom": 63
+    }
+  },
+  {
+    "bag": "rosbags/20261112_002418_observe_ircq19zg",
+    "source": "tools/s_bend/records/runs/20261112_002418_observe_ircq19zg.jsonl",
+    "source_sha256": "e48845b09e1d32750683e0566269b14c4075202bbb24b5c10a752d0c1483c3d0",
+    "mode": "observe",
+    "messages": 402,
+    "scan": 80,
+    "odom": 80,
+    "control": 0,
+    "duration_s": 8.019072069,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 80,
+      "/replay/odom": 80,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80
+    }
+  },
+  {
+    "bag": "rosbags/20261112_002428_drive_n4rnhpox",
+    "source": "tools/s_bend/records/runs/20261112_002428_drive_n4rnhpox.jsonl",
+    "source_sha256": "3131bdca904e304d41f357628ace156b2517bf43dcb9ec3e7929936ee24bf9aa",
+    "mode": "drive",
+    "messages": 2268,
+    "scan": 254,
+    "odom": 236,
+    "control": 524,
+    "duration_s": 26.303907303,
+    "topics": {
+      "/replay/events": 526,
+      "/replay/control_pwm": 524,
+      "/scan": 254,
+      "/replay/scan_info": 254,
+      "/replay/plan": 238,
+      "/tf": 236,
+      "/replay/odom": 236
+    }
+  },
+  {
+    "bag": "rosbags/20261112_002659_drive_4p91stoj",
+    "source": "tools/s_bend/records/runs/20261112_002659_drive_4p91stoj.jsonl",
+    "source_sha256": "ce24ceae9429b29315a0f89467f986d6dc6c10cbdd09f22910508413aac40aa5",
+    "mode": "drive",
+    "messages": 445,
+    "scan": 53,
+    "odom": 36,
+    "control": 114,
+    "duration_s": 5.903645752,
+    "topics": {
+      "/replay/events": 116,
+      "/replay/control_pwm": 114,
+      "/scan": 53,
+      "/replay/scan_info": 53,
+      "/replay/plan": 37,
+      "/tf": 36,
+      "/replay/odom": 36
+    }
+  },
+  {
+    "bag": "rosbags/20261112_003004_drive_89l77d20",
+    "source": "tools/s_bend/records/runs/20261112_003004_drive_89l77d20.jsonl",
+    "source_sha256": "d15ef4d8306db690669b8f404076c35d43ced30474df50113ac9ef508356ad7b",
+    "mode": "drive",
+    "messages": 2209,
+    "scan": 247,
+    "odom": 238,
+    "control": 499,
+    "duration_s": 24.953898399,
+    "topics": {
+      "/replay/events": 501,
+      "/replay/control_pwm": 499,
+      "/scan": 247,
+      "/replay/scan_info": 247,
+      "/replay/plan": 239,
+      "/tf": 238,
+      "/replay/odom": 238
+    }
+  },
+  {
+    "bag": "rosbags/20261112_183337_drive_uq8ynpl3",
+    "source": "tools/s_bend/records/runs/20261112_183337_drive_uq8ynpl3.jsonl",
+    "source_sha256": "f951e18534fc255e44d333bee5bac972322a3530bc2c1bc3cba1f7a286ab1232",
+    "mode": "drive",
+    "messages": 535,
+    "scan": 65,
+    "odom": 47,
+    "control": 136,
+    "duration_s": 6.799425506,
+    "topics": {
+      "/replay/events": 138,
+      "/replay/control_pwm": 136,
+      "/scan": 65,
+      "/replay/scan_info": 65,
+      "/tf": 47,
+      "/replay/odom": 47,
+      "/replay/plan": 37
+    }
+  },
+  {
+    "bag": "rosbags/20261112_183743_observe_knsaz61f",
+    "source": "tools/s_bend/records/runs/20261112_183743_observe_knsaz61f.jsonl",
+    "source_sha256": "61b77c436cba6862438f32839255cc070e56c814dcd3e296ef26ec79a8134aee",
+    "mode": "observe",
+    "messages": 272,
+    "scan": 54,
+    "odom": 54,
+    "control": 0,
+    "duration_s": 7.998383801,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 54,
+      "/replay/odom": 54,
+      "/scan": 54,
+      "/replay/scan_info": 54,
+      "/replay/plan": 54
+    }
+  },
+  {
+    "bag": "rosbags/20261112_183940_observe_4aocvv1f",
+    "source": "tools/s_bend/records/runs/20261112_183940_observe_4aocvv1f.jsonl",
+    "source_sha256": "52951d4442f2494b009f7bb458c91d63af8892aab3637a6643fbec9549631543",
+    "mode": "observe",
+    "messages": 282,
+    "scan": 56,
+    "odom": 56,
+    "control": 0,
+    "duration_s": 8.021408075,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 56,
+      "/replay/odom": 56,
+      "/scan": 56,
+      "/replay/scan_info": 56,
+      "/replay/plan": 56
+    }
+  },
+  {
+    "bag": "rosbags/20261112_184100_observe_hzhvzb45",
+    "source": "tools/s_bend/records/runs/20261112_184100_observe_hzhvzb45.jsonl",
+    "source_sha256": "6622442f77c52e5314a61461bc81948df07de71ed3c14d9af66d6a9c22968c42",
+    "mode": "observe",
+    "messages": 402,
+    "scan": 80,
+    "odom": 80,
+    "control": 0,
+    "duration_s": 8.021526901,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 80,
+      "/replay/odom": 80,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80
+    }
+  },
+  {
+    "bag": "rosbags/20261112_184413_drive_ua3s_03y",
+    "source": "tools/s_bend/records/runs/20261112_184413_drive_ua3s_03y.jsonl",
+    "source_sha256": "25392699c262aa444535a5fdf6e84e62a60c73154f610a78d91c0536c2e91f0e",
+    "mode": "drive",
+    "messages": 407,
+    "scan": 31,
+    "odom": 31,
+    "control": 125,
+    "duration_s": 6.254501729,
+    "topics": {
+      "/replay/events": 127,
+      "/replay/control_pwm": 125,
+      "/tf": 31,
+      "/replay/odom": 31,
+      "/scan": 31,
+      "/replay/scan_info": 31,
+      "/replay/plan": 31
+    }
+  },
+  {
+    "bag": "rosbags/20261112_184541_observe_dg7g1ly2",
+    "source": "tools/s_bend/records/runs/20261112_184541_observe_dg7g1ly2.jsonl",
+    "source_sha256": "771e8e2b72c588ade18bf938a196ee9b1a0261738680c2d6a9df543af4b756e7",
+    "mode": "observe",
+    "messages": 402,
+    "scan": 80,
+    "odom": 80,
+    "control": 0,
+    "duration_s": 8.000052917,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 80,
+      "/replay/odom": 80,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80
+    }
+  },
+  {
+    "bag": "rosbags/20261112_184640_drive_o7bwouzn",
+    "source": "tools/s_bend/records/runs/20261112_184640_drive_o7bwouzn.jsonl",
+    "source_sha256": "bb700e4f45a59e022f1ba52b2009cbbaf746a06c86309af6e8c8ddf70da8907c",
+    "mode": "drive",
+    "messages": 378,
+    "scan": 30,
+    "odom": 30,
+    "control": 113,
+    "duration_s": 5.657801692,
+    "topics": {
+      "/replay/events": 115,
+      "/replay/control_pwm": 113,
+      "/tf": 30,
+      "/replay/odom": 30,
+      "/scan": 30,
+      "/replay/scan_info": 30,
+      "/replay/plan": 30
+    }
+  },
+  {
+    "bag": "rosbags/20261112_185736_observe_o1gf5z20",
+    "source": "tools/s_bend/records/runs/20261112_185736_observe_o1gf5z20.jsonl",
+    "source_sha256": "30fc8a3b1150ee02bd53b6c6670e7940f4b5eabe32d0760b27403f85a4827fdf",
+    "mode": "observe",
+    "messages": 65,
+    "scan": 21,
+    "odom": 1,
+    "control": 0,
+    "duration_s": 1.999734217,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 21,
+      "/replay/scan_info": 21,
+      "/replay/plan": 19,
+      "/tf": 1,
+      "/replay/odom": 1
+    }
+  },
+  {
+    "bag": "rosbags/20261112_185800_observe_mqhud207",
+    "source": "tools/s_bend/records/runs/20261112_185800_observe_mqhud207.jsonl",
+    "source_sha256": "d5928d2f9eed41545d5d181cb33ea6770dc3484888de1b69c1bb5034ba3b802b",
+    "mode": "observe",
+    "messages": 351,
+    "scan": 77,
+    "odom": 59,
+    "control": 0,
+    "duration_s": 7.998386343,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 77,
+      "/replay/scan_info": 77,
+      "/replay/plan": 77,
+      "/tf": 59,
+      "/replay/odom": 59
+    }
+  },
+  {
+    "bag": "rosbags/20261112_190009_observe_u12g_3fa",
+    "source": "tools/s_bend/records/runs/20261112_190009_observe_u12g_3fa.jsonl",
+    "source_sha256": "178463a925e5d262d203b4e7be715e7403b018f142556bc3757eb149e7dac09a",
+    "mode": "observe",
+    "messages": 336,
+    "scan": 74,
+    "odom": 56,
+    "control": 0,
+    "duration_s": 7.998090676,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 74,
+      "/replay/scan_info": 74,
+      "/replay/plan": 74,
+      "/tf": 56,
+      "/replay/odom": 56
+    }
+  },
+  {
+    "bag": "rosbags/20261112_190224_observe_pipeji5v",
+    "source": "tools/s_bend/records/runs/20261112_190224_observe_pipeji5v.jsonl",
+    "source_sha256": "5f34d6bb24927fc36ab2b079cbece310b96c4cd81889eb38f7f003f65abca715",
+    "mode": "observe",
+    "messages": 311,
+    "scan": 69,
+    "odom": 51,
+    "control": 0,
+    "duration_s": 7.998396405,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 69,
+      "/replay/scan_info": 69,
+      "/replay/plan": 69,
+      "/tf": 51,
+      "/replay/odom": 51
+    }
+  },
+  {
+    "bag": "rosbags/20261112_190549_observe_9hygx3mi",
+    "source": "tools/s_bend/records/runs/20261112_190549_observe_9hygx3mi.jsonl",
+    "source_sha256": "891f7e591c2a7d5ee80f24bd78b2a65d94abe9638854ebdecbd2d2d238d1bc9e",
+    "mode": "observe",
+    "messages": 377,
+    "scan": 75,
+    "odom": 75,
+    "control": 0,
+    "duration_s": 7.998101341,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 75,
+      "/replay/odom": 75,
+      "/scan": 75,
+      "/replay/scan_info": 75,
+      "/replay/plan": 75
+    }
+  },
+  {
+    "bag": "rosbags/20261112_190722_observe_dpseif9i",
+    "source": "tools/s_bend/records/runs/20261112_190722_observe_dpseif9i.jsonl",
+    "source_sha256": "0fbe5a009ff48f9f81d8d08e6265e650db11d9d13a1e1c85904fec1c0d42e970",
+    "mode": "observe",
+    "messages": 292,
+    "scan": 58,
+    "odom": 58,
+    "control": 0,
+    "duration_s": 7.99865422,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 58,
+      "/replay/odom": 58,
+      "/scan": 58,
+      "/replay/scan_info": 58,
+      "/replay/plan": 58
+    }
+  },
+  {
+    "bag": "rosbags/20261112_191107_observe_yl8v4ir8",
+    "source": "tools/s_bend/records/runs/20261112_191107_observe_yl8v4ir8.jsonl",
+    "source_sha256": "95cb4655aa6c547e6d6e0734791c61ad7adc2fc60c84890f483f5e0841a4dd4e",
+    "mode": "observe",
+    "messages": 384,
+    "scan": 80,
+    "odom": 71,
+    "control": 0,
+    "duration_s": 8.005693508,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 71,
+      "/replay/odom": 71
+    }
+  },
+  {
+    "bag": "rosbags/20261112_191145_drive_wqkaqqnf",
+    "source": "tools/s_bend/records/runs/20261112_191145_drive_wqkaqqnf.jsonl",
+    "source_sha256": "de8ec9fa210e0b4f91f5cb491e5deb6ce3c5e100469def3021ba8e751f64e5f8",
+    "mode": "drive",
+    "messages": 651,
+    "scan": 74,
+    "odom": 56,
+    "control": 166,
+    "duration_s": 8.319968308,
+    "topics": {
+      "/replay/events": 168,
+      "/replay/control_pwm": 166,
+      "/scan": 74,
+      "/replay/scan_info": 74,
+      "/replay/plan": 57,
+      "/tf": 56,
+      "/replay/odom": 56
+    }
+  },
+  {
+    "bag": "rosbags/20261112_191359_observe__vy_jvig",
+    "source": "tools/s_bend/records/runs/20261112_191359_observe__vy_jvig.jsonl",
+    "source_sha256": "b50ba79a2c4a8c07f5d16a95625982d5cc137fbe1cec0c0f4789af8b34a41e8e",
+    "mode": "observe",
+    "messages": 317,
+    "scan": 63,
+    "odom": 63,
+    "control": 0,
+    "duration_s": 7.998962116,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 63,
+      "/replay/odom": 63,
+      "/scan": 63,
+      "/replay/scan_info": 63,
+      "/replay/plan": 63
+    }
+  },
+  {
+    "bag": "rosbags/20261112_191454_observe_mqgbhbvk",
+    "source": "tools/s_bend/records/runs/20261112_191454_observe_mqgbhbvk.jsonl",
+    "source_sha256": "fda181d813ef5b10207c42ef6dcb6f428792d54f3a1e38694c97001a56835750",
+    "mode": "observe",
+    "messages": 316,
+    "scan": 70,
+    "odom": 52,
+    "control": 0,
+    "duration_s": 8.006428916,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 70,
+      "/replay/scan_info": 70,
+      "/replay/plan": 70,
+      "/tf": 52,
+      "/replay/odom": 52
+    }
+  },
+  {
+    "bag": "rosbags/20261112_191735_observe_cqn4fzyz",
+    "source": "tools/s_bend/records/runs/20261112_191735_observe_cqn4fzyz.jsonl",
+    "source_sha256": "f0aa14afd05134453023cb62ae803344dfe2527f7a35167dcdfdefacd366a3e0",
+    "mode": "observe",
+    "messages": 302,
+    "scan": 60,
+    "odom": 60,
+    "control": 0,
+    "duration_s": 8.005021596,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 60,
+      "/replay/odom": 60,
+      "/scan": 60,
+      "/replay/scan_info": 60,
+      "/replay/plan": 60
+    }
+  },
+  {
+    "bag": "rosbags/20261112_191834_drive_1lf4b6hw",
+    "source": "tools/s_bend/records/runs/20261112_191834_drive_1lf4b6hw.jsonl",
+    "source_sha256": "65c0f9e85d9a653f42dfac5b9a9c83021ed74181c2263596ac4a59c217c0fd7f",
+    "mode": "drive",
+    "messages": 1593,
+    "scan": 165,
+    "odom": 165,
+    "control": 383,
+    "duration_s": 19.159686134,
+    "topics": {
+      "/replay/events": 385,
+      "/replay/control_pwm": 383,
+      "/tf": 165,
+      "/replay/odom": 165,
+      "/scan": 165,
+      "/replay/scan_info": 165,
+      "/replay/plan": 165
+    }
+  },
+  {
+    "bag": "rosbags/20261112_192221_observe_tm8pvggs",
+    "source": "tools/s_bend/records/runs/20261112_192221_observe_tm8pvggs.jsonl",
+    "source_sha256": "1cedff89e11a74e2e2d66e6df62f5bcf05fbce0345042c4220f41374e584742d",
+    "mode": "observe",
+    "messages": 400,
+    "scan": 80,
+    "odom": 79,
+    "control": 0,
+    "duration_s": 7.991638744,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 79,
+      "/replay/odom": 79
+    }
+  },
+  {
+    "bag": "rosbags/20261112_192327_observe_d9hgu4p0",
+    "source": "tools/s_bend/records/runs/20261112_192327_observe_d9hgu4p0.jsonl",
+    "source_sha256": "391244fb0d9aaf9ba398dd8827cebd999cc87bb4ad7499419e5af1c19968936a",
+    "mode": "observe",
+    "messages": 316,
+    "scan": 70,
+    "odom": 52,
+    "control": 0,
+    "duration_s": 8.001054868,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 70,
+      "/replay/scan_info": 70,
+      "/replay/plan": 70,
+      "/tf": 52,
+      "/replay/odom": 52
+    }
+  },
+  {
+    "bag": "rosbags/20261112_192454_drive_zcy3iunf",
+    "source": "tools/s_bend/records/runs/20261112_192454_drive_zcy3iunf.jsonl",
+    "source_sha256": "70ffd377ea6573af7b20693d53a1efbf465404dca2c83da0088bcf18e8990168",
+    "mode": "drive",
+    "messages": 609,
+    "scan": 67,
+    "odom": 52,
+    "control": 158,
+    "duration_s": 7.913664076,
+    "topics": {
+      "/replay/events": 160,
+      "/replay/control_pwm": 158,
+      "/scan": 67,
+      "/replay/scan_info": 67,
+      "/replay/plan": 53,
+      "/tf": 52,
+      "/replay/odom": 52
+    }
+  },
+  {
+    "bag": "rosbags/20261112_192721_observe_vqfghnfy",
+    "source": "tools/s_bend/records/runs/20261112_192721_observe_vqfghnfy.jsonl",
+    "source_sha256": "0fdcc7c3d279d998cb5d61000f0ca1b18ad18e4dfd0306cb9b3452f75c9f7c95",
+    "mode": "observe",
+    "messages": 316,
+    "scan": 70,
+    "odom": 52,
+    "control": 0,
+    "duration_s": 8.004802236,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 70,
+      "/replay/scan_info": 70,
+      "/replay/plan": 70,
+      "/tf": 52,
+      "/replay/odom": 52
+    }
+  },
+  {
+    "bag": "rosbags/20261112_192731_drive_zi56wnzt",
+    "source": "tools/s_bend/records/runs/20261112_192731_drive_zi56wnzt.jsonl",
+    "source_sha256": "a4811f575a9d44576718396d72cfebbfbdf06ff89dcc94cb6dc8afb377936f2b",
+    "mode": "drive",
+    "messages": 543,
+    "scan": 47,
+    "odom": 47,
+    "control": 153,
+    "duration_s": 7.668422266,
+    "topics": {
+      "/replay/events": 155,
+      "/replay/control_pwm": 153,
+      "/tf": 47,
+      "/replay/odom": 47,
+      "/scan": 47,
+      "/replay/scan_info": 47,
+      "/replay/plan": 47
+    }
+  },
+  {
+    "bag": "rosbags/20261112_193024_observe__rvrxdak",
+    "source": "tools/s_bend/records/runs/20261112_193024_observe__rvrxdak.jsonl",
+    "source_sha256": "6855353cbe1fd103793f5b5eb4a38c37523eb77e1be70739fa8d187d178b4435",
+    "mode": "observe",
+    "messages": 351,
+    "scan": 77,
+    "odom": 59,
+    "control": 0,
+    "duration_s": 8.002749252,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 77,
+      "/replay/scan_info": 77,
+      "/replay/plan": 77,
+      "/tf": 59,
+      "/replay/odom": 59
+    }
+  },
+  {
+    "bag": "rosbags/20261112_193216_observe_2re6kfmy",
+    "source": "tools/s_bend/records/runs/20261112_193216_observe_2re6kfmy.jsonl",
+    "source_sha256": "bd07487a67736dbc553e3e91f1bd511b5dc8372d03dacd0adcef222573410eb4",
+    "mode": "observe",
+    "messages": 346,
+    "scan": 80,
+    "odom": 52,
+    "control": 0,
+    "duration_s": 8.046760459,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 52,
+      "/replay/odom": 52
+    }
+  },
+  {
+    "bag": "rosbags/20261112_193348_observe_njtznngd",
+    "source": "tools/s_bend/records/runs/20261112_193348_observe_njtznngd.jsonl",
+    "source_sha256": "d6c357278cf5673d32fb1e6646186a9fb310e1a4a4561c6a7d6b645296080234",
+    "mode": "observe",
+    "messages": 362,
+    "scan": 72,
+    "odom": 72,
+    "control": 0,
+    "duration_s": 8.043370568,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 72,
+      "/replay/odom": 72,
+      "/scan": 72,
+      "/replay/scan_info": 72,
+      "/replay/plan": 72
+    }
+  },
+  {
+    "bag": "rosbags/20261112_193641_drive_i4xw2w4v",
+    "source": "tools/s_bend/records/runs/20261112_193641_drive_i4xw2w4v.jsonl",
+    "source_sha256": "6c9d286a1402ba324fd3d5a444c6612ebb4ac615b23cbe39498bcaf2df5965bc",
+    "mode": "drive",
+    "messages": 962,
+    "scan": 96,
+    "odom": 96,
+    "control": 240,
+    "duration_s": 12.012494605,
+    "topics": {
+      "/replay/events": 242,
+      "/replay/control_pwm": 240,
+      "/tf": 96,
+      "/replay/odom": 96,
+      "/scan": 96,
+      "/replay/scan_info": 96,
+      "/replay/plan": 96
+    }
+  },
+  {
+    "bag": "rosbags/20261112_193755_observe_5mggq1oc",
+    "source": "tools/s_bend/records/runs/20261112_193755_observe_5mggq1oc.jsonl",
+    "source_sha256": "18971b3f82c800468c28fc7a54020ea668cdf2078029159d7b6c3861cea2f007",
+    "mode": "observe",
+    "messages": 252,
+    "scan": 50,
+    "odom": 50,
+    "control": 0,
+    "duration_s": 7.997822361,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 50,
+      "/replay/odom": 50,
+      "/scan": 50,
+      "/replay/scan_info": 50,
+      "/replay/plan": 50
+    }
+  },
+  {
+    "bag": "rosbags/20261112_193822_observe_2vfwzl_m",
+    "source": "tools/s_bend/records/runs/20261112_193822_observe_2vfwzl_m.jsonl",
+    "source_sha256": "b0bc2f505cad7889a499b31c3c3b3749b6f36c60e56b2b3eb2010e5e2420182e",
+    "mode": "observe",
+    "messages": 247,
+    "scan": 49,
+    "odom": 49,
+    "control": 0,
+    "duration_s": 8.015647429,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 49,
+      "/replay/odom": 49,
+      "/scan": 49,
+      "/replay/scan_info": 49,
+      "/replay/plan": 49
+    }
+  },
+  {
+    "bag": "rosbags/20261112_193938_observe_dsu3nv8c",
+    "source": "tools/s_bend/records/runs/20261112_193938_observe_dsu3nv8c.jsonl",
+    "source_sha256": "3d0cf676f05ae330b05d13dd46876bfa67bc3776ad9a102d400bcee2bbfbc1a7",
+    "mode": "observe",
+    "messages": 297,
+    "scan": 59,
+    "odom": 59,
+    "control": 0,
+    "duration_s": 7.998454526,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 59,
+      "/replay/odom": 59,
+      "/scan": 59,
+      "/replay/scan_info": 59,
+      "/replay/plan": 59
+    }
+  },
+  {
+    "bag": "rosbags/20261112_194142_observe_iy50hj5r",
+    "source": "tools/s_bend/records/runs/20261112_194142_observe_iy50hj5r.jsonl",
+    "source_sha256": "1f288b805960f6a127291ffd549379dbc5227fd4db8c37a37f43e801eb24307d",
+    "mode": "observe",
+    "messages": 400,
+    "scan": 80,
+    "odom": 79,
+    "control": 0,
+    "duration_s": 7.991464048,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 79,
+      "/replay/odom": 79
+    }
+  },
+  {
+    "bag": "rosbags/20261112_194341_observe_sv9b39b0",
+    "source": "tools/s_bend/records/runs/20261112_194341_observe_sv9b39b0.jsonl",
+    "source_sha256": "2f07b44ca206e91d571eba25e4f00a00c64d6c8262d0b4ada6a8e1bb00ddd687",
+    "mode": "observe",
+    "messages": 312,
+    "scan": 62,
+    "odom": 62,
+    "control": 0,
+    "duration_s": 7.998213022,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 62,
+      "/replay/odom": 62,
+      "/scan": 62,
+      "/replay/scan_info": 62,
+      "/replay/plan": 62
+    }
+  },
+  {
+    "bag": "rosbags/20261112_194351_drive__g1rp6ir",
+    "source": "tools/s_bend/records/runs/20261112_194351_drive__g1rp6ir.jsonl",
+    "source_sha256": "9ce3c2800cb2b35425a3464bb70b9902bfb5178e852a777ad3d8a112e959a8f3",
+    "mode": "drive",
+    "messages": 850,
+    "scan": 97,
+    "odom": 79,
+    "control": 208,
+    "duration_s": 10.406429467,
+    "topics": {
+      "/replay/events": 210,
+      "/replay/control_pwm": 208,
+      "/scan": 97,
+      "/replay/scan_info": 97,
+      "/replay/plan": 80,
+      "/tf": 79,
+      "/replay/odom": 79
+    }
+  },
+  {
+    "bag": "rosbags/20261112_194545_observe_68andv1l",
+    "source": "tools/s_bend/records/runs/20261112_194545_observe_68andv1l.jsonl",
+    "source_sha256": "d748a730e4534d7b591d96d8a49e526b7df4c5aea8b72e806b10645d57803afd",
+    "mode": "observe",
+    "messages": 331,
+    "scan": 73,
+    "odom": 55,
+    "control": 0,
+    "duration_s": 8.000080143,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 73,
+      "/replay/scan_info": 73,
+      "/replay/plan": 73,
+      "/tf": 55,
+      "/replay/odom": 55
+    }
+  },
+  {
+    "bag": "rosbags/20261112_194759_observe_ijr6wl05",
+    "source": "tools/s_bend/records/runs/20261112_194759_observe_ijr6wl05.jsonl",
+    "source_sha256": "206f17d7ad576132d41b2b9dec4c59778f8f4d7686ff55bc3e61c6dead76e2a2",
+    "mode": "observe",
+    "messages": 307,
+    "scan": 61,
+    "odom": 61,
+    "control": 0,
+    "duration_s": 7.99821548,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 61,
+      "/replay/odom": 61,
+      "/scan": 61,
+      "/replay/scan_info": 61,
+      "/replay/plan": 61
+    }
+  },
+  {
+    "bag": "rosbags/20261112_195007_observe_h118mwzm",
+    "source": "tools/s_bend/records/runs/20261112_195007_observe_h118mwzm.jsonl",
+    "source_sha256": "a24510c89477e34e5b19b2ec655d0b9f82426a8a5d53392ddf01defce454b8f3",
+    "mode": "observe",
+    "messages": 333,
+    "scan": 78,
+    "odom": 49,
+    "control": 0,
+    "duration_s": 7.998491169,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 78,
+      "/replay/scan_info": 78,
+      "/replay/plan": 77,
+      "/tf": 49,
+      "/replay/odom": 49
+    }
+  },
+  {
+    "bag": "rosbags/20261112_195101_observe_xj84bxl3",
+    "source": "tools/s_bend/records/runs/20261112_195101_observe_xj84bxl3.jsonl",
+    "source_sha256": "bae9e5f218619f2a726aac0dc3c3932bb6dcb500759bdf3f2f2667618a2f16fe",
+    "mode": "observe",
+    "messages": 282,
+    "scan": 56,
+    "odom": 56,
+    "control": 0,
+    "duration_s": 8.006727208,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 56,
+      "/replay/odom": 56,
+      "/scan": 56,
+      "/replay/scan_info": 56,
+      "/replay/plan": 56
+    }
+  },
+  {
+    "bag": "rosbags/20261112_195149_observe_ok_918y5",
+    "source": "tools/s_bend/records/runs/20261112_195149_observe_ok_918y5.jsonl",
+    "source_sha256": "eb061e2534a85b1760119eb2fe3a5d9bec2b31e8fd4364eb64748dd798639887",
+    "mode": "observe",
+    "messages": 402,
+    "scan": 80,
+    "odom": 80,
+    "control": 0,
+    "duration_s": 8.01713266,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 80,
+      "/replay/odom": 80,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80
+    }
+  },
+  {
+    "bag": "rosbags/20261112_195159_drive_cih1bxym",
+    "source": "tools/s_bend/records/runs/20261112_195159_drive_cih1bxym.jsonl",
+    "source_sha256": "255908523e93217363d4ba4f084acef6c3188764aaf726a04a2cfa58beb8c7df",
+    "mode": "drive",
+    "messages": 202,
+    "scan": 13,
+    "odom": 13,
+    "control": 68,
+    "duration_s": 3.466387989,
+    "topics": {
+      "/replay/events": 70,
+      "/replay/control_pwm": 68,
+      "/tf": 13,
+      "/replay/odom": 13,
+      "/scan": 13,
+      "/replay/scan_info": 13,
+      "/replay/plan": 12
+    }
+  },
+  {
+    "bag": "rosbags/20261112_195301_observe_qyxl8qw8",
+    "source": "tools/s_bend/records/runs/20261112_195301_observe_qyxl8qw8.jsonl",
+    "source_sha256": "296890a8f87523f0eea34a34da0379ed942d1d5c4a7a3167bf7a6ea2b442b37b",
+    "mode": "observe",
+    "messages": 400,
+    "scan": 80,
+    "odom": 79,
+    "control": 0,
+    "duration_s": 8.005906702,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 79,
+      "/replay/odom": 79
+    }
+  },
+  {
+    "bag": "rosbags/20261112_195318_drive_dqaujs8j",
+    "source": "tools/s_bend/records/runs/20261112_195318_drive_dqaujs8j.jsonl",
+    "source_sha256": "7f2ef5908ce8da6fdd3ea80c125fc0e2d20d21dd37702c2f331c7ebd7b830bb3",
+    "mode": "drive",
+    "messages": 446,
+    "scan": 48,
+    "odom": 32,
+    "control": 126,
+    "duration_s": 6.315003387,
+    "topics": {
+      "/replay/events": 128,
+      "/replay/control_pwm": 126,
+      "/scan": 48,
+      "/replay/scan_info": 48,
+      "/tf": 32,
+      "/replay/odom": 32,
+      "/replay/plan": 32
+    }
+  },
+  {
+    "bag": "rosbags/20261112_195417_observe_16gmls1e",
+    "source": "tools/s_bend/records/runs/20261112_195417_observe_16gmls1e.jsonl",
+    "source_sha256": "6c67ea820a3eab48a0975169c2db65f19140c30ebf8e2e2edbc656654b7e618a",
+    "mode": "observe",
+    "messages": 378,
+    "scan": 81,
+    "odom": 67,
+    "control": 0,
+    "duration_s": 8.017234862,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 81,
+      "/replay/scan_info": 81,
+      "/replay/plan": 80,
+      "/tf": 67,
+      "/replay/odom": 67
+    }
+  },
+  {
+    "bag": "rosbags/20261112_195451_observe_0fagznn6",
+    "source": "tools/s_bend/records/runs/20261112_195451_observe_0fagznn6.jsonl",
+    "source_sha256": "b3d6a03388c51ac6210a2187f116905d352beff3b490e755774c7955f1c50201",
+    "mode": "observe",
+    "messages": 351,
+    "scan": 77,
+    "odom": 59,
+    "control": 0,
+    "duration_s": 8.005226707,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 77,
+      "/replay/scan_info": 77,
+      "/replay/plan": 77,
+      "/tf": 59,
+      "/replay/odom": 59
+    }
+  },
+  {
+    "bag": "rosbags/20261112_195551_observe_qt39o6de",
+    "source": "tools/s_bend/records/runs/20261112_195551_observe_qt39o6de.jsonl",
+    "source_sha256": "ba4acc186f6c52f5afc627eed2316ff50e4d6089682f52dfb1b6e4a0fe137578",
+    "mode": "observe",
+    "messages": 355,
+    "scan": 77,
+    "odom": 61,
+    "control": 0,
+    "duration_s": 8.006253011,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 77,
+      "/replay/scan_info": 77,
+      "/replay/plan": 77,
+      "/tf": 61,
+      "/replay/odom": 61
+    }
+  },
+  {
+    "bag": "rosbags/20261112_195631_observe_ks5tyjdh",
+    "source": "tools/s_bend/records/runs/20261112_195631_observe_ks5tyjdh.jsonl",
+    "source_sha256": "57a5c65ce51efab3261fe7f0977ecdd68984b1db5e966155afcea82af42b7bac",
+    "mode": "observe",
+    "messages": 255,
+    "scan": 51,
+    "odom": 50,
+    "control": 0,
+    "duration_s": 8.009011781,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 51,
+      "/replay/scan_info": 51,
+      "/replay/plan": 51,
+      "/tf": 50,
+      "/replay/odom": 50
+    }
+  },
+  {
+    "bag": "rosbags/20261112_195828_observe_z0nwzurp",
+    "source": "tools/s_bend/records/runs/20261112_195828_observe_z0nwzurp.jsonl",
+    "source_sha256": "6c62177799ea06212d5b936659747bfc5e19ab58c31db9bb433da24623ef4755",
+    "mode": "observe",
+    "messages": 365,
+    "scan": 77,
+    "odom": 66,
+    "control": 0,
+    "duration_s": 8.006668087,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 77,
+      "/replay/scan_info": 77,
+      "/replay/plan": 77,
+      "/tf": 66,
+      "/replay/odom": 66
+    }
+  },
+  {
+    "bag": "rosbags/20261112_200159_observe_iqpqjbfp",
+    "source": "tools/s_bend/records/runs/20261112_200159_observe_iqpqjbfp.jsonl",
+    "source_sha256": "bd401c0c5dcb162656b0d76eee75329391b4b196864f5adfa65e263b67834ca9",
+    "mode": "observe",
+    "messages": 312,
+    "scan": 62,
+    "odom": 62,
+    "control": 0,
+    "duration_s": 8.017607066,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 62,
+      "/replay/odom": 62,
+      "/scan": 62,
+      "/replay/scan_info": 62,
+      "/replay/plan": 62
+    }
+  },
+  {
+    "bag": "rosbags/20261112_200209_drive_f0h33xkl",
+    "source": "tools/s_bend/records/runs/20261112_200209_drive_f0h33xkl.jsonl",
+    "source_sha256": "40501e565df43e7009245df87751460e494a721819c66ed59ff0f298933072a5",
+    "mode": "drive",
+    "messages": 262,
+    "scan": 28,
+    "odom": 27,
+    "control": 61,
+    "duration_s": 3.059817129,
+    "topics": {
+      "/replay/events": 63,
+      "/replay/control_pwm": 61,
+      "/scan": 28,
+      "/replay/scan_info": 28,
+      "/replay/plan": 28,
+      "/tf": 27,
+      "/replay/odom": 27
+    }
+  },
+  {
+    "bag": "rosbags/20261112_200304_observe_wnv8mrac",
+    "source": "tools/s_bend/records/runs/20261112_200304_observe_wnv8mrac.jsonl",
+    "source_sha256": "19fd521b270e76489991bf4b52525b3f0ce77b91fd020c9bcabbcfe058e243c3",
+    "mode": "observe",
+    "messages": 257,
+    "scan": 51,
+    "odom": 51,
+    "control": 0,
+    "duration_s": 7.998496731,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 51,
+      "/replay/odom": 51,
+      "/scan": 51,
+      "/replay/scan_info": 51,
+      "/replay/plan": 51
+    }
+  },
+  {
+    "bag": "rosbags/20261112_200320_observe_5741mdmr",
+    "source": "tools/s_bend/records/runs/20261112_200320_observe_5741mdmr.jsonl",
+    "source_sha256": "e19522ab48ccc5df8228e7964203553474289e53d76ea6331252e31a040b2fed",
+    "mode": "observe",
+    "messages": 342,
+    "scan": 68,
+    "odom": 68,
+    "control": 0,
+    "duration_s": 8.004453176,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 68,
+      "/replay/odom": 68,
+      "/scan": 68,
+      "/replay/scan_info": 68,
+      "/replay/plan": 68
+    }
+  },
+  {
+    "bag": "rosbags/20261112_200559_observe_11rv_hyi",
+    "source": "tools/s_bend/records/runs/20261112_200559_observe_11rv_hyi.jsonl",
+    "source_sha256": "f4d817e52590bd436ba39330bc860ee360f9457c40f4a166666a156d005f1e9f",
+    "mode": "observe",
+    "messages": 327,
+    "scan": 65,
+    "odom": 65,
+    "control": 0,
+    "duration_s": 8.004450156,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 65,
+      "/replay/odom": 65,
+      "/scan": 65,
+      "/replay/scan_info": 65,
+      "/replay/plan": 65
+    }
+  },
+  {
+    "bag": "rosbags/20261112_200658_observe_4ve068d7",
+    "source": "tools/s_bend/records/runs/20261112_200658_observe_4ve068d7.jsonl",
+    "source_sha256": "f2f95053b847e6b974d24f057b900d1a0838fa7f397fa00b2d85bb61bc8d4be7",
+    "mode": "observe",
+    "messages": 275,
+    "scan": 55,
+    "odom": 54,
+    "control": 0,
+    "duration_s": 7.998752214,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 54,
+      "/replay/odom": 54,
+      "/scan": 55,
+      "/replay/scan_info": 55,
+      "/replay/plan": 55
+    }
+  },
+  {
+    "bag": "rosbags/20261112_200831_observe_1qbp5rfr",
+    "source": "tools/s_bend/records/runs/20261112_200831_observe_1qbp5rfr.jsonl",
+    "source_sha256": "f325ec88822a0c2072e3956b9b04b22243bc536ad11e9a388680a7df1dc13e48",
+    "mode": "observe",
+    "messages": 267,
+    "scan": 53,
+    "odom": 53,
+    "control": 0,
+    "duration_s": 8.020095561,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 53,
+      "/replay/odom": 53,
+      "/scan": 53,
+      "/replay/scan_info": 53,
+      "/replay/plan": 53
+    }
+  },
+  {
+    "bag": "rosbags/20261112_200841_drive_8roqrw6s",
+    "source": "tools/s_bend/records/runs/20261112_200841_drive_8roqrw6s.jsonl",
+    "source_sha256": "6069a16aa124719bd014d715b7416d527df330ef2f35697ca9617d4080c8a1ff",
+    "mode": "drive",
+    "messages": 423,
+    "scan": 39,
+    "odom": 39,
+    "control": 113,
+    "duration_s": 5.656148056,
+    "topics": {
+      "/replay/events": 115,
+      "/replay/control_pwm": 113,
+      "/tf": 39,
+      "/replay/odom": 39,
+      "/scan": 39,
+      "/replay/scan_info": 39,
+      "/replay/plan": 39
+    }
+  },
+  {
+    "bag": "rosbags/20261112_201122_observe_s27ufe7z",
+    "source": "tools/s_bend/records/runs/20261112_201122_observe_s27ufe7z.jsonl",
+    "source_sha256": "fd5a72fe449dffbf9a94e624b9b7bb8b8b7913cbd476206953a103298a31346b",
+    "mode": "observe",
+    "messages": 282,
+    "scan": 56,
+    "odom": 56,
+    "control": 0,
+    "duration_s": 8.022048573,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 56,
+      "/replay/odom": 56,
+      "/scan": 56,
+      "/replay/scan_info": 56,
+      "/replay/plan": 56
+    }
+  },
+  {
+    "bag": "rosbags/20261112_201223_observe_1yy73mz5",
+    "source": "tools/s_bend/records/runs/20261112_201223_observe_1yy73mz5.jsonl",
+    "source_sha256": "125c0a4a7cc520139906680ff5beee8e786b6eae0fae519027275323c6052f85",
+    "mode": "observe",
+    "messages": 372,
+    "scan": 80,
+    "odom": 65,
+    "control": 0,
+    "duration_s": 8.019719649,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 65,
+      "/replay/odom": 65
+    }
+  },
+  {
+    "bag": "rosbags/20261112_201233_drive_lgcmusk1",
+    "source": "tools/s_bend/records/runs/20261112_201233_drive_lgcmusk1.jsonl",
+    "source_sha256": "a29684e56fa7b4714136ebc4cfedda1b6d3aab970701572bdcf9d1c4014f4cea",
+    "mode": "drive",
+    "messages": 482,
+    "scan": 56,
+    "odom": 38,
+    "control": 127,
+    "duration_s": 6.35241759,
+    "topics": {
+      "/replay/events": 129,
+      "/replay/control_pwm": 127,
+      "/scan": 56,
+      "/replay/scan_info": 56,
+      "/tf": 38,
+      "/replay/odom": 38,
+      "/replay/plan": 38
+    }
+  },
+  {
+    "bag": "rosbags/20261112_201330_observe_3lg7p3q7",
+    "source": "tools/s_bend/records/runs/20261112_201330_observe_3lg7p3q7.jsonl",
+    "source_sha256": "69b2b494c68eeddda479a3e6e7f09961dfcbb10b834fcbf8d616de91f61c88e2",
+    "mode": "observe",
+    "messages": 334,
+    "scan": 74,
+    "odom": 55,
+    "control": 0,
+    "duration_s": 7.998201835,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 74,
+      "/replay/scan_info": 74,
+      "/replay/plan": 74,
+      "/tf": 55,
+      "/replay/odom": 55
+    }
+  },
+  {
+    "bag": "rosbags/20261112_201416_observe_vjv9yl6z",
+    "source": "tools/s_bend/records/runs/20261112_201416_observe_vjv9yl6z.jsonl",
+    "source_sha256": "32f01a2d01c4dd8b37fbaefd0f11399f8e5474e56625fb78cd5d4cd679eeab1a",
+    "mode": "observe",
+    "messages": 282,
+    "scan": 56,
+    "odom": 56,
+    "control": 0,
+    "duration_s": 7.999514016,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 56,
+      "/replay/odom": 56,
+      "/scan": 56,
+      "/replay/scan_info": 56,
+      "/replay/plan": 56
+    }
+  },
+  {
+    "bag": "rosbags/20261112_201654_observe_iemn660_",
+    "source": "tools/s_bend/records/runs/20261112_201654_observe_iemn660_.jsonl",
+    "source_sha256": "b40e62a6b9547db3af0525b726f0dc5c28dcbcfede46b09c1cf21bf232a2278e",
+    "mode": "observe",
+    "messages": 400,
+    "scan": 80,
+    "odom": 79,
+    "control": 0,
+    "duration_s": 7.997921604,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 79,
+      "/replay/odom": 79
+    }
+  },
+  {
+    "bag": "rosbags/20261112_201802_observe_7srhjj_3",
+    "source": "tools/s_bend/records/runs/20261112_201802_observe_7srhjj_3.jsonl",
+    "source_sha256": "c2bda6b41a58d6e28cff4e3e957349ce307dcd5dfc9b8845617baac7861de6a3",
+    "mode": "observe",
+    "messages": 327,
+    "scan": 65,
+    "odom": 65,
+    "control": 0,
+    "duration_s": 7.998289328,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 65,
+      "/replay/odom": 65,
+      "/scan": 65,
+      "/replay/scan_info": 65,
+      "/replay/plan": 65
+    }
+  },
+  {
+    "bag": "rosbags/20261112_201813_drive__j0qv5il",
+    "source": "tools/s_bend/records/runs/20261112_201813_drive__j0qv5il.jsonl",
+    "source_sha256": "bc45e8bb87a9a87211092c2697e688313f8953ae932f66d07186f75b44defd90",
+    "mode": "drive",
+    "messages": 635,
+    "scan": 79,
+    "odom": 50,
+    "control": 162,
+    "duration_s": 8.113570873,
+    "topics": {
+      "/replay/events": 164,
+      "/replay/control_pwm": 162,
+      "/scan": 79,
+      "/replay/scan_info": 79,
+      "/replay/plan": 51,
+      "/tf": 50,
+      "/replay/odom": 50
+    }
+  },
+  {
+    "bag": "rosbags/20261112_202157_observe_5h3zz5h9",
+    "source": "tools/s_bend/records/runs/20261112_202157_observe_5h3zz5h9.jsonl",
+    "source_sha256": "50a038062461fd7e4d3c8fdeb6e0c32d7f77179eb11b5dc20bb283978346ef84",
+    "mode": "observe",
+    "messages": 402,
+    "scan": 80,
+    "odom": 80,
+    "control": 0,
+    "duration_s": 8.014961351,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 80,
+      "/replay/odom": 80,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80
+    }
+  },
+  {
+    "bag": "rosbags/20261112_202207_drive_94usmxs8",
+    "source": "tools/s_bend/records/runs/20261112_202207_drive_94usmxs8.jsonl",
+    "source_sha256": "2f392ae0c77f7bea3537970d38c048ae7f2b9162c63d2a77c26704fee7f5225e",
+    "mode": "drive",
+    "messages": 478,
+    "scan": 40,
+    "odom": 40,
+    "control": 138,
+    "duration_s": 6.90580162,
+    "topics": {
+      "/replay/events": 140,
+      "/replay/control_pwm": 138,
+      "/tf": 40,
+      "/replay/odom": 40,
+      "/scan": 40,
+      "/replay/scan_info": 40,
+      "/replay/plan": 40
+    }
+  },
+  {
+    "bag": "rosbags/20261112_202247_observe_77kbmm_m",
+    "source": "tools/s_bend/records/runs/20261112_202247_observe_77kbmm_m.jsonl",
+    "source_sha256": "b876229bd13663cb3d44d6d6af513b66f2a6a54a12dbedd16aeeb3c86dc9edc6",
+    "mode": "observe",
+    "messages": 287,
+    "scan": 57,
+    "odom": 57,
+    "control": 0,
+    "duration_s": 7.998593621,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 57,
+      "/replay/odom": 57,
+      "/scan": 57,
+      "/replay/scan_info": 57,
+      "/replay/plan": 57
+    }
+  },
+  {
+    "bag": "rosbags/20261112_202427_observe_w_lk1uzk",
+    "source": "tools/s_bend/records/runs/20261112_202427_observe_w_lk1uzk.jsonl",
+    "source_sha256": "1ef73dbb6f3e74e09fe217a214c61c2d1ce06045efb2c57b81c0d0a5d59e56be",
+    "mode": "observe",
+    "messages": 288,
+    "scan": 64,
+    "odom": 48,
+    "control": 0,
+    "duration_s": 7.998251998,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 64,
+      "/replay/scan_info": 64,
+      "/replay/plan": 62,
+      "/tf": 48,
+      "/replay/odom": 48
+    }
+  },
+  {
+    "bag": "rosbags/20261112_202537_observe_8ykjsfph",
+    "source": "tools/s_bend/records/runs/20261112_202537_observe_8ykjsfph.jsonl",
+    "source_sha256": "ee9f6ed2b03da2edac610938290b8ca9e206e8e32cfb9c3eadea982e070d733f",
+    "mode": "observe",
+    "messages": 262,
+    "scan": 52,
+    "odom": 52,
+    "control": 0,
+    "duration_s": 7.998193564,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 52,
+      "/replay/odom": 52,
+      "/scan": 52,
+      "/replay/scan_info": 52,
+      "/replay/plan": 52
+    }
+  },
+  {
+    "bag": "rosbags/20261112_202547_drive_90ddpm69",
+    "source": "tools/s_bend/records/runs/20261112_202547_drive_90ddpm69.jsonl",
+    "source_sha256": "3a8930ec6333e8180a0765afc6874bf9e80a8bac132a44cab0c9e8158cc7ee36",
+    "mode": "drive",
+    "messages": 440,
+    "scan": 40,
+    "odom": 40,
+    "control": 119,
+    "duration_s": 5.952312141,
+    "topics": {
+      "/replay/events": 121,
+      "/replay/control_pwm": 119,
+      "/tf": 40,
+      "/replay/odom": 40,
+      "/scan": 40,
+      "/replay/scan_info": 40,
+      "/replay/plan": 40
+    }
+  },
+  {
+    "bag": "rosbags/20261112_202638_observe_kgz0dlfv",
+    "source": "tools/s_bend/records/runs/20261112_202638_observe_kgz0dlfv.jsonl",
+    "source_sha256": "b1a028c9d60db7102a0c8d7d500ebf7317f979a9a075b1382dcec8fc7355b3da",
+    "mode": "observe",
+    "messages": 317,
+    "scan": 63,
+    "odom": 63,
+    "control": 0,
+    "duration_s": 7.998517959,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 63,
+      "/replay/odom": 63,
+      "/scan": 63,
+      "/replay/scan_info": 63,
+      "/replay/plan": 63
+    }
+  },
+  {
+    "bag": "rosbags/20261112_202732_observe_y73q6som",
+    "source": "tools/s_bend/records/runs/20261112_202732_observe_y73q6som.jsonl",
+    "source_sha256": "73da82b7cf8ebb783c446789f1400a7c0eed4aedebdff1763859dd75d45828b6",
+    "mode": "observe",
+    "messages": 312,
+    "scan": 62,
+    "odom": 62,
+    "control": 0,
+    "duration_s": 7.991643118,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 62,
+      "/replay/odom": 62,
+      "/scan": 62,
+      "/replay/scan_info": 62,
+      "/replay/plan": 62
+    }
+  },
+  {
+    "bag": "rosbags/20261112_202838_observe_x0i32dpn",
+    "source": "tools/s_bend/records/runs/20261112_202838_observe_x0i32dpn.jsonl",
+    "source_sha256": "789dd7b0ec5f5fda527d56153a7cb1d3a64af5c528e9e315e22f0f66e0feec71",
+    "mode": "observe",
+    "messages": 281,
+    "scan": 56,
+    "odom": 56,
+    "control": 0,
+    "duration_s": 7.998076114,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 56,
+      "/replay/odom": 56,
+      "/scan": 56,
+      "/replay/scan_info": 56,
+      "/replay/plan": 55
+    }
+  },
+  {
+    "bag": "rosbags/20261112_202908_observe_l_1lfxtq",
+    "source": "tools/s_bend/records/runs/20261112_202908_observe_l_1lfxtq.jsonl",
+    "source_sha256": "bfb7d67f97edfde29401c479156398b94214e7dc1ccda5e2d83a4396cca515ef",
+    "mode": "observe",
+    "messages": 292,
+    "scan": 58,
+    "odom": 58,
+    "control": 0,
+    "duration_s": 8.004678744,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 58,
+      "/replay/odom": 58,
+      "/scan": 58,
+      "/replay/scan_info": 58,
+      "/replay/plan": 58
+    }
+  },
+  {
+    "bag": "rosbags/20261112_202945_observe_9klho0og",
+    "source": "tools/s_bend/records/runs/20261112_202945_observe_9klho0og.jsonl",
+    "source_sha256": "91c5e0de975b3c4b4acf4f5ad771c805df8a4bb8200dbff6d4a893946fcf06a0",
+    "mode": "observe",
+    "messages": 336,
+    "scan": 74,
+    "odom": 56,
+    "control": 0,
+    "duration_s": 8.010495137,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 74,
+      "/replay/scan_info": 74,
+      "/replay/plan": 74,
+      "/tf": 56,
+      "/replay/odom": 56
+    }
+  },
+  {
+    "bag": "rosbags/20261112_203111_observe_rraki8z1",
+    "source": "tools/s_bend/records/runs/20261112_203111_observe_rraki8z1.jsonl",
+    "source_sha256": "c807a27d0e9731ce52ca7b30551ab51281ea41d470c724f436fdb2befc3a8ada",
+    "mode": "observe",
+    "messages": 337,
+    "scan": 67,
+    "odom": 67,
+    "control": 0,
+    "duration_s": 8.018286061,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 67,
+      "/replay/odom": 67,
+      "/scan": 67,
+      "/replay/scan_info": 67,
+      "/replay/plan": 67
+    }
+  },
+  {
+    "bag": "rosbags/20261112_203122_drive_1o274cfm",
+    "source": "tools/s_bend/records/runs/20261112_203122_drive_1o274cfm.jsonl",
+    "source_sha256": "f4013cf385109e360c2b553b9fa91f6f0a59723f6f856d5d6982307a206978a2",
+    "mode": "drive",
+    "messages": 431,
+    "scan": 52,
+    "odom": 34,
+    "control": 111,
+    "duration_s": 5.553220976,
+    "topics": {
+      "/replay/events": 113,
+      "/replay/control_pwm": 111,
+      "/scan": 52,
+      "/replay/scan_info": 52,
+      "/replay/plan": 35,
+      "/tf": 34,
+      "/replay/odom": 34
+    }
+  },
+  {
+    "bag": "rosbags/20261112_203216_observe_bjc4rq2d",
+    "source": "tools/s_bend/records/runs/20261112_203216_observe_bjc4rq2d.jsonl",
+    "source_sha256": "a6f85fb77a5283248e6a880dff5b9a2dc1ffdb9a71566a6554ccdcda162072d3",
+    "mode": "observe",
+    "messages": 368,
+    "scan": 80,
+    "odom": 63,
+    "control": 0,
+    "duration_s": 7.991306766,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 80,
+      "/replay/scan_info": 80,
+      "/replay/plan": 80,
+      "/tf": 63,
+      "/replay/odom": 63
+    }
+  },
+  {
+    "bag": "rosbags/20261112_203508_observe_nnb2wdb8",
+    "source": "tools/s_bend/records/runs/20261112_203508_observe_nnb2wdb8.jsonl",
+    "source_sha256": "6151ba8f85b36e29f88c4cdb117175f25c4c0e73b852b36702cccc61b8b2db64",
+    "mode": "observe",
+    "messages": 307,
+    "scan": 61,
+    "odom": 61,
+    "control": 0,
+    "duration_s": 8.004301041,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 61,
+      "/replay/odom": 61,
+      "/scan": 61,
+      "/replay/scan_info": 61,
+      "/replay/plan": 61
+    }
+  },
+  {
+    "bag": "rosbags/20261112_203714_observe_nfgma9wq",
+    "source": "tools/s_bend/records/runs/20261112_203714_observe_nfgma9wq.jsonl",
+    "source_sha256": "b414a9e042f4b5b778373b977e18da88664b424b6af325e15cc9422108a2f5f6",
+    "mode": "observe",
+    "messages": 327,
+    "scan": 65,
+    "odom": 65,
+    "control": 0,
+    "duration_s": 7.99793704,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 65,
+      "/replay/odom": 65,
+      "/scan": 65,
+      "/replay/scan_info": 65,
+      "/replay/plan": 65
+    }
+  },
+  {
+    "bag": "rosbags/20261112_203724_drive_ofyoqtxg",
+    "source": "tools/s_bend/records/runs/20261112_203724_drive_ofyoqtxg.jsonl",
+    "source_sha256": "17861ff41e723c48f7306e20b48047beeb40abac8930cf1352aae47169ac95a2",
+    "mode": "drive",
+    "messages": 494,
+    "scan": 58,
+    "odom": 40,
+    "control": 128,
+    "duration_s": 6.402536254,
+    "topics": {
+      "/replay/events": 130,
+      "/replay/control_pwm": 128,
+      "/scan": 58,
+      "/replay/scan_info": 58,
+      "/tf": 40,
+      "/replay/odom": 40,
+      "/replay/plan": 40
+    }
+  },
+  {
+    "bag": "rosbags/20261112_203805_observe_6iog7kik",
+    "source": "tools/s_bend/records/runs/20261112_203805_observe_6iog7kik.jsonl",
+    "source_sha256": "0dc23c73acc53a30f557e27a184a199b418e98a3525a5157cb4a33d747ac9fa7",
+    "mode": "observe",
+    "messages": 387,
+    "scan": 78,
+    "odom": 76,
+    "control": 0,
+    "duration_s": 7.999119876,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 78,
+      "/replay/scan_info": 78,
+      "/replay/plan": 77,
+      "/tf": 76,
+      "/replay/odom": 76
+    }
+  },
+  {
+    "bag": "rosbags/20261112_204224_observe_14dgo_nb",
+    "source": "tools/s_bend/records/runs/20261112_204224_observe_14dgo_nb.jsonl",
+    "source_sha256": "a193acdf472f96ba33419c95c3ceb1660e722d650bdecda46520fd4cfac52f9e",
+    "mode": "observe",
+    "messages": 390,
+    "scan": 78,
+    "odom": 77,
+    "control": 0,
+    "duration_s": 8.019449335,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 78,
+      "/replay/scan_info": 78,
+      "/replay/plan": 78,
+      "/tf": 77,
+      "/replay/odom": 77
+    }
+  },
+  {
+    "bag": "rosbags/20261112_204341_drive_hgsmoiyg",
+    "source": "tools/s_bend/records/runs/20261112_204341_drive_hgsmoiyg.jsonl",
+    "source_sha256": "924de4256d03c83f9ff803a0c2c63c0857ef34d70322e1c4c3e294ead3a175f1",
+    "mode": "drive",
+    "messages": 1288,
+    "scan": 132,
+    "odom": 132,
+    "control": 316,
+    "duration_s": 15.752491331,
+    "topics": {
+      "/replay/events": 323,
+      "/replay/control_pwm": 316,
+      "/tf": 132,
+      "/replay/odom": 132,
+      "/scan": 132,
+      "/replay/scan_info": 132,
+      "/replay/plan": 121
+    }
+  },
+  {
+    "bag": "rosbags/20261112_204804_observe_hkhz8qev",
+    "source": "tools/s_bend/records/runs/20261112_204804_observe_hkhz8qev.jsonl",
+    "source_sha256": "6f241c05db28f2da656641276069f80fc7e7622d66df2cde78d59131babe8fd5",
+    "mode": "observe",
+    "messages": 186,
+    "scan": 37,
+    "odom": 37,
+    "control": 0,
+    "duration_s": 6.499349586,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 37,
+      "/replay/odom": 37,
+      "/scan": 37,
+      "/replay/scan_info": 37,
+      "/replay/plan": 36
+    }
+  },
+  {
+    "bag": "rosbags/20261112_204957_observe_5sv5givf",
+    "source": "tools/s_bend/records/runs/20261112_204957_observe_5sv5givf.jsonl",
+    "source_sha256": "c26d976eafd5c8b5c1d9e5929d161c57af0ef19b8ee4d3fcf519bae3e4900096",
+    "mode": "observe",
+    "messages": 229,
+    "scan": 53,
+    "odom": 34,
+    "control": 0,
+    "duration_s": 6.458718459,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 53,
+      "/replay/scan_info": 53,
+      "/replay/plan": 53,
+      "/tf": 34,
+      "/replay/odom": 34
+    }
+  },
+  {
+    "bag": "rosbags/20261112_205019_drive_p840tn9g",
+    "source": "tools/s_bend/records/runs/20261112_205019_drive_p840tn9g.jsonl",
+    "source_sha256": "901d7d9b3cbec3e670876cef49c7e54c6a29d50d16951134f4a08b16bbc86a41",
+    "mode": "drive",
+    "messages": 4894,
+    "scan": 551,
+    "odom": 523,
+    "control": 1108,
+    "duration_s": 55.921815639,
+    "topics": {
+      "/replay/events": 1113,
+      "/replay/control_pwm": 1108,
+      "/scan": 551,
+      "/replay/scan_info": 551,
+      "/tf": 523,
+      "/replay/odom": 523,
+      "/replay/plan": 525
+    }
+  },
+  {
+    "bag": "rosbags/20261112_205427_observe_zmpzanqa",
+    "source": "tools/s_bend/records/runs/20261112_205427_observe_zmpzanqa.jsonl",
+    "source_sha256": "79e1c3219021ba5474a775af767dcd56441f98c803a00407589c31598917002d",
+    "mode": "observe",
+    "messages": 257,
+    "scan": 51,
+    "odom": 51,
+    "control": 0,
+    "duration_s": 6.212392036,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 51,
+      "/replay/odom": 51,
+      "/scan": 51,
+      "/replay/scan_info": 51,
+      "/replay/plan": 51
+    }
+  },
+  {
+    "bag": "rosbags/20261112_205457_drive_7kzqq4ch",
+    "source": "tools/s_bend/records/runs/20261112_205457_drive_7kzqq4ch.jsonl",
+    "source_sha256": "eb3a91e99ea2609be95b5f8ffb0a0ad6cb6614e47f4ee05aabf6a3579fa73fc5",
+    "mode": "drive",
+    "messages": 686,
+    "scan": 71,
+    "odom": 71,
+    "control": 171,
+    "duration_s": 8.502631018,
+    "topics": {
+      "/replay/events": 176,
+      "/replay/control_pwm": 171,
+      "/tf": 71,
+      "/replay/odom": 71,
+      "/scan": 71,
+      "/replay/scan_info": 71,
+      "/replay/plan": 55
+    }
+  },
+  {
+    "bag": "rosbags/20261112_205550_observe_gmwftn2i",
+    "source": "tools/s_bend/records/runs/20261112_205550_observe_gmwftn2i.jsonl",
+    "source_sha256": "269f1d780892428974d433a9e66edb38683fcc36ac970f549738e2f9c5405c30",
+    "mode": "observe",
+    "messages": 186,
+    "scan": 37,
+    "odom": 37,
+    "control": 0,
+    "duration_s": 5.522595391,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 37,
+      "/replay/odom": 37,
+      "/scan": 37,
+      "/replay/scan_info": 37,
+      "/replay/plan": 36
+    }
+  },
+  {
+    "bag": "rosbags/20261112_205712_observe_db88sshk",
+    "source": "tools/s_bend/records/runs/20261112_205712_observe_db88sshk.jsonl",
+    "source_sha256": "96ee67f519794a4782617cdc4948516b3866d4fc0d41f4ecc31f3f7a14eb9733",
+    "mode": "observe",
+    "messages": 168,
+    "scan": 44,
+    "odom": 17,
+    "control": 0,
+    "duration_s": 4.440840258,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 44,
+      "/replay/scan_info": 44,
+      "/replay/plan": 44,
+      "/tf": 17,
+      "/replay/odom": 17
+    }
+  },
+  {
+    "bag": "rosbags/20261112_205718_drive_vujse87a",
+    "source": "tools/s_bend/records/runs/20261112_205718_drive_vujse87a.jsonl",
+    "source_sha256": "071ed22382c01be0abf3515eb55438973ba3be27ba49b1933a71697f1e3dd961",
+    "mode": "drive",
+    "messages": 241,
+    "scan": 27,
+    "odom": 11,
+    "control": 77,
+    "duration_s": 3.802445772,
+    "topics": {
+      "/replay/events": 82,
+      "/replay/control_pwm": 77,
+      "/scan": 27,
+      "/replay/scan_info": 27,
+      "/tf": 11,
+      "/replay/odom": 11,
+      "/replay/plan": 6
+    }
+  },
+  {
+    "bag": "rosbags/20261112_205731_drive_7r1nbdt0",
+    "source": "tools/s_bend/records/runs/20261112_205731_drive_7r1nbdt0.jsonl",
+    "source_sha256": "4711dc4ef168e73d59e12c88c93889afeeffbf83cd4ede932118a0a8e695e6ac",
+    "mode": "drive",
+    "messages": 914,
+    "scan": 110,
+    "odom": 82,
+    "control": 228,
+    "duration_s": 11.352458563,
+    "topics": {
+      "/replay/events": 233,
+      "/replay/control_pwm": 228,
+      "/scan": 110,
+      "/replay/scan_info": 110,
+      "/replay/plan": 69,
+      "/tf": 82,
+      "/replay/odom": 82
+    }
+  },
+  {
+    "bag": "rosbags/20261112_205841_observe_7c5a7db3",
+    "source": "tools/s_bend/records/runs/20261112_205841_observe_7c5a7db3.jsonl",
+    "source_sha256": "d5bd801bd7b91f7bc8000c8165edabefa4b5c25802729636d75846fa98fe2eb5",
+    "mode": "observe",
+    "messages": 121,
+    "scan": 24,
+    "odom": 24,
+    "control": 0,
+    "duration_s": 4.196395227,
+    "topics": {
+      "/replay/events": 2,
+      "/tf": 24,
+      "/replay/odom": 24,
+      "/scan": 24,
+      "/replay/scan_info": 24,
+      "/replay/plan": 23
+    }
+  },
+  {
+    "bag": "rosbags/20261112_205847_drive_8jf9ettq",
+    "source": "tools/s_bend/records/runs/20261112_205847_drive_8jf9ettq.jsonl",
+    "source_sha256": "eb913d97989a50ee826dbfe159b243dbe03dc06235f3d712e61e94b310cc9d8f",
+    "mode": "drive",
+    "messages": 937,
+    "scan": 93,
+    "odom": 93,
+    "control": 242,
+    "duration_s": 12.252263978,
+    "topics": {
+      "/replay/events": 248,
+      "/replay/control_pwm": 242,
+      "/tf": 93,
+      "/replay/odom": 93,
+      "/scan": 93,
+      "/replay/scan_info": 93,
+      "/replay/plan": 75
+    }
+  },
+  {
+    "bag": "rosbags/20261112_211954_observe_6k82b31p",
+    "source": "tools/s_bend/records/runs/20261112_211954_observe_6k82b31p.jsonl",
+    "source_sha256": "107e5c9051e6846983e79feed80e7e9b4e4a247221bbf09bbbb572472a0c0600",
+    "mode": "observe",
+    "messages": 215,
+    "scan": 50,
+    "odom": 32,
+    "control": 0,
+    "duration_s": 5.491916622,
+    "topics": {
+      "/replay/events": 2,
+      "/scan": 50,
+      "/replay/scan_info": 50,
+      "/replay/plan": 49,
+      "/tf": 32,
+      "/replay/odom": 32
+    }
+  },
+  {
+    "bag": "rosbags/20261112_212001_drive_op9zcbzp",
+    "source": "tools/s_bend/records/runs/20261112_212001_drive_op9zcbzp.jsonl",
+    "source_sha256": "fcdde36cb646555f6d13f6f71733ab5d7aa1520d486d4cb6e480fe0d7485d3dd",
+    "mode": "drive",
+    "messages": 1259,
+    "scan": 129,
+    "odom": 129,
+    "control": 315,
+    "duration_s": 15.703208215,
+    "topics": {
+      "/replay/events": 322,
+      "/replay/control_pwm": 315,
+      "/tf": 129,
+      "/replay/odom": 129,
+      "/scan": 129,
+      "/replay/scan_info": 129,
+      "/replay/plan": 106
+    }
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "latest_vehicle_journal": "20261112_212001_drive_op9zcbzp.jsonl",
+  "journal_sha256": "fcdde36cb646555f6d13f6f71733ab5d7aa1520d486d4cb6e480fe0d7485d3dd",
+  "vehicle_revisions_from_journal": {
+    "planners/dense/dense_reference.py": "2fb53356b9728fb4a12745dcf790f5a309b0f5ae31bbc099e2ca2e55bb44a3c4",
+    "planners/dense/pairing.py": "cc8de16c0e4f8105ffb680c1fac047ba85552ce548357cfdae8ae5f491433b17",
+    "planners/dense/progressive.py": "1f253bc0f909611a88993a5b1f26dffe06e52899575ce35958032f04b7db6cea",
+    "planners/dense/corner_transition.py": "824b671bbb0ec5845e3097ed5d423757db0a71f619adee5680d6edd8a50a0943",
+    "dense_s_bend.py": "4029e4e42913c82bc0a4c576a261dff70af36c483dc7c66430af451b1ce6900e",
+    "dense_settings.json": "da6e6040e2995c335cc7516c90171cf8d7e2c1fdad553f46961f1ebc9a5a32be",
+    "run_dense.sh": "ccd1b8e69523ccde014950bc2fa9710b55f6d4ee505f6d4976a9b22b5857e5fa",
+    "core/vehicle_io.py": "bda25cce8359193e549c072cf9c56f7941f7c3ccad190064a02c0bdb94fc7eb1",
+    "core/geometry.py": "96a2118c2b47034f098e1a3e62b66f69fb1dd8a8533f15bd74947ff38d75f454",
+    "core/run_record.py": "a7d21269f68dc42984777e4d3849beb66b02590583375e7a768aa4b38ff94b9a"
+  },
+  "candidate_changed_files": {
+    "core/geometry.py": "463e43e61814f69a8b00c669e34216ea46f3579005f0c76e08dd7cbea671189f",
+    "planners/dense/progressive.py": "700aefdf601dfdaac708e9689b876ddb9251c000175f916385c533e162477871"
+  },
+  "archive_run_files": {
+    ".jsonl": 206,
+    ".json": 4,
+    ".png": 1
+  },
+  "latest_journal_scans": 129,
+  "latest_journal_pose_samples": 129
+}

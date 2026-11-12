@@ -1,0 +1,60 @@
+rosbag2_bagfile_information:
+  version: 5
+  storage_identifier: sqlite3
+  starting_time: &id001
+    nanoseconds_since_epoch: 1794408529753130057
+  duration: &id002
+    nanoseconds: 5060759513
+  message_count: 319
+  topics_with_message_count:
+  - topic_metadata:
+      name: /replay/events
+      type: std_msgs/msg/String
+      serialization_format: cdr
+      offered_qos_profiles: ''
+    message_count: 103
+  - topic_metadata:
+      name: /replay/control_pwm
+      type: geometry_msgs/msg/Twist
+      serialization_format: cdr
+      offered_qos_profiles: ''
+    message_count: 101
+  - topic_metadata:
+      name: /tf
+      type: tf2_msgs/msg/TFMessage
+      serialization_format: cdr
+      offered_qos_profiles: ''
+    message_count: 23
+  - topic_metadata:
+      name: /replay/odom
+      type: nav_msgs/msg/Odometry
+      serialization_format: cdr
+      offered_qos_profiles: ''
+    message_count: 23
+  - topic_metadata:
+      name: /scan
+      type: sensor_msgs/msg/LaserScan
+      serialization_format: cdr
+      offered_qos_profiles: ''
+    message_count: 23
+  - topic_metadata:
+      name: /replay/scan_info
+      type: std_msgs/msg/String
+      serialization_format: cdr
+      offered_qos_profiles: ''
+    message_count: 23
+  - topic_metadata:
+      name: /replay/plan
+      type: std_msgs/msg/String
+      serialization_format: cdr
+      offered_qos_profiles: ''
+    message_count: 23
+  compression_format: ''
+  compression_mode: ''
+  relative_file_paths:
+  - 20261111_224849_drive_z9xw43ms_0.db3
+  files:
+  - path: 20261111_224849_drive_z9xw43ms_0.db3
+    starting_time: *id001
+    duration: *id002
+    message_count: 319

@@ -1,0 +1,13 @@
+# 二进制文件：不要让 git 做文本 diff / 换行转换
+*.db3   binary
+*.mcap  binary
+*.pgm   binary
+*.png   binary
+*.jpg   binary
+*.rar   binary
+*.zip   binary
+*.tar   binary
+*.gz    binary
+*.a     binary
+*.so    binary
+*.pdf   binary
